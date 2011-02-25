@@ -1,0 +1,69 @@
+# XLConnect requires rJava & XLConnectJars
+import(rJava)
+import(XLConnectJars)
+
+# XLConnect exports the following S4 classes & methods
+exportClasses(workbook, cellstyle)
+exportMethods(
+	addImage,
+	createCellStyle,
+	createName,
+	createSheet,
+	existsName,
+	existsSheet,
+	getActiveSheetIndex,
+	getActiveSheetName,
+        getCellStyle,
+	getDefinedNames,
+	getReferenceFormula,
+	getSheets,
+	hideSheet,
+	isSheetHidden,
+	isSheetVeryHidden,
+	isSheetVisible,
+	print,
+	readNamedRegion,
+	readWorksheet,
+	removeName,
+	removeSheet,
+	saveWorkbook,
+	setActiveSheet,
+	setBorder,
+	setCellStyle,
+	setColumnWidth,
+	setDataFormat,
+	setFillBackgroundColor,
+	setFillForegroundColor,
+	setFillPattern,
+	setRowHeight,
+	setStyleAction,
+	setStyleNamePrefix,
+	setWrapText,
+	show,
+	summary,
+	unhideSheet,
+	writeNamedRegion,
+	writeWorksheet,
+	"$"
+)
+
+# XLConnect exports the following functions & variables
+export(
+	mirai,
+	loadWorkbook,
+        readNamedRegionFromFile,
+        readWorksheetFromFile,
+	runUnitTests,
+        writeNamedRegionToFile,
+        writeWorksheetToFile,
+	xlcFreeMemory,
+	xlcMemoryReport,
+	XLC
+)
+
+# XLConnect exports the following S3 methods
+S3method(print, mirai)
+S3method(with, workbook)
+
+# keeps rcmd check from complaining 
+importFrom("utils", "packageDescription")

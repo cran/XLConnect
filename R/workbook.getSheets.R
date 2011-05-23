@@ -32,6 +32,6 @@ setGeneric("getSheets",
 setMethod("getSheets", 
 	signature(object = "workbook"), 
 	function(object) {
-		jTryCatch(object@jobj$getSheets())
+		jTryCatch(as.vector(object@jobj$getSheets()))
 	}
 )

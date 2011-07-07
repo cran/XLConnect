@@ -20,20 +20,19 @@
 
 #############################################################################
 #
-# Evaluate an expression in the context of Excel named regions
+# Creates an Excel area reference
 # 
 # Author: Martin Studer, Mirai Solutions GmbH
 #
 #############################################################################
 
-with.workbook <- function(data, expr, ...) {
-	env <- new.env(parent = parent.frame())
-	for(name in getDefinedNames(data, validOnly = TRUE)) {
-		tryCatch(assign(make.names(name), readNamedRegion(data, name = name, ...), env = env),
-			error = function(e) {
-				warning(e)
-			}
-		)
-	}
-	eval(substitute(expr), envir = env)
+aref <- function(topLeft, dimension) {
+	if(is.character(topLeft))
+		topLeft <- as.vector(cref2idx(topLeft))
+	if(!is.numeric(topLeft))
+		stop("topLeft must be either a cell reference (character) in the form 'A1' or a numeric vector of length 2!")
+	if(!is.numeric(dimension) || length(dimension) != 2)
+		stop("dimension must be a numeric vector of length 2!")
+	
+	idx2aref(c(topLeft, topLeft + dimension - 1))
 }

@@ -20,20 +20,28 @@
 
 #############################################################################
 #
-# Evaluate an expression in the context of Excel named regions
+# Retrieving a flag that forces Excel to recalculate formulae on reload
 # 
-# Author: Martin Studer, Mirai Solutions GmbH
+# Author: Thomas Themel, Mirai Solutions GmbH
 #
 #############################################################################
 
-with.workbook <- function(data, expr, ...) {
-	env <- new.env(parent = parent.frame())
-	for(name in getDefinedNames(data, validOnly = TRUE)) {
-		tryCatch(assign(make.names(name), readNamedRegion(data, name = name, ...), env = env),
-			error = function(e) {
-				warning(e)
-			}
-		)
+setGeneric("getForceFormulaRecalculation",
+	function(object, sheet) standardGeneric("getForceFormulaRecalculation"))
+
+setMethod("getForceFormulaRecalculation", 
+	signature(object = "workbook", sheet = "numeric"), 
+	function(object, sheet) {
+		xlcCall(object, "getForceFormulaRecalculation", as.integer(sheet-1))
 	}
-	eval(substitute(expr), envir = env)
-}
+)
+
+setMethod("getForceFormulaRecalculation", 
+	signature(object = "workbook", sheet = "character"), 
+	function(object, sheet) {
+		if(sheet == "*")
+			callGeneric(object, getSheets(object))
+		else
+			xlcCall(object, "getForceFormulaRecalculation", sheet)
+	}
+)

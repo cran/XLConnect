@@ -20,20 +20,27 @@
 
 #############################################################################
 #
-# Evaluate an expression in the context of Excel named regions
+# Setting autofilters on worksheets
 # 
 # Author: Martin Studer, Mirai Solutions GmbH
 #
 #############################################################################
 
-with.workbook <- function(data, expr, ...) {
-	env <- new.env(parent = parent.frame())
-	for(name in getDefinedNames(data, validOnly = TRUE)) {
-		tryCatch(assign(make.names(name), readNamedRegion(data, name = name, ...), env = env),
-			error = function(e) {
-				warning(e)
-			}
-		)
-	}
-	eval(substitute(expr), envir = env)
-}
+setGeneric("setAutoFilter",
+		function(object, sheet, reference) standardGeneric("setAutoFilter"))
+
+setMethod("setAutoFilter", 
+		signature(object = "workbook", sheet = "numeric", reference = "character"), 
+		function(object, sheet, reference) {
+			xlcCall(object, "setAutoFilter", as.integer(sheet - 1), reference)
+			invisible()
+		}
+)
+
+setMethod("setAutoFilter", 
+		signature(object = "workbook", sheet = "character", reference = "character"), 
+		function(object, sheet, reference) {
+			xlcCall(object, "setAutoFilter", sheet, reference)
+			invisible()
+		}
+)

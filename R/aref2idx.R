@@ -20,20 +20,15 @@
 
 #############################################################################
 #
-# Evaluate an expression in the context of Excel named regions
+# Converting Excel cell references to row and column based cell references
 # 
 # Author: Martin Studer, Mirai Solutions GmbH
 #
 #############################################################################
 
-with.workbook <- function(data, expr, ...) {
-	env <- new.env(parent = parent.frame())
-	for(name in getDefinedNames(data, validOnly = TRUE)) {
-		tryCatch(assign(make.names(name), readNamedRegion(data, name = name, ...), env = env),
-			error = function(e) {
-				warning(e)
-			}
-		)
-	}
-	eval(substitute(expr), envir = env)
+aref2idx <- function(x) {
+	if(!is.character(x)) stop("x must be a vector of area references (character)!")
+	t(sapply(x, function(xx) {
+		as.vector(t(cref2idx(strsplit(xx, split = ":", fixed = TRUE)[[1]])))
+	}, USE.NAMES = FALSE))
 }

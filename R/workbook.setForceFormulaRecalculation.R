@@ -20,20 +20,31 @@
 
 #############################################################################
 #
-# Evaluate an expression in the context of Excel named regions
+# Set a flag to force excel to recalculate formula values
 # 
 # Author: Martin Studer, Mirai Solutions GmbH
 #
 #############################################################################
 
-with.workbook <- function(data, expr, ...) {
-	env <- new.env(parent = parent.frame())
-	for(name in getDefinedNames(data, validOnly = TRUE)) {
-		tryCatch(assign(make.names(name), readNamedRegion(data, name = name, ...), env = env),
-			error = function(e) {
-				warning(e)
-			}
-		)
-	}
-	eval(substitute(expr), envir = env)
-}
+setGeneric("setForceFormulaRecalculation",
+		function(object, sheet, value) standardGeneric("setForceFormulaRecalculation"))
+
+setMethod("setForceFormulaRecalculation", 
+		signature(object = "workbook", sheet = "character", value = "logical"), 
+		function(object, sheet, value) {
+			if(sheet == "*") {
+				callGeneric(object, getSheets(object), value)
+			} else
+				xlcCall(object, "setForceFormulaRecalculation", sheet, value)
+			
+			invisible()
+		}
+)
+
+setMethod("setForceFormulaRecalculation", 
+		signature(object = "workbook", sheet = "numeric", value = "logical"), 
+		function(object, sheet, value) {
+			xlcCall(object, "setForceFormulaRecalculation", as.integer(sheet-1), value)
+			invisible()
+		}
+)

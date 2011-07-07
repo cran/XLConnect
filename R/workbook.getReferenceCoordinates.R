@@ -20,20 +20,19 @@
 
 #############################################################################
 #
-# Evaluate an expression in the context of Excel named regions
+# Querying coordinates of Excel names
 # 
-# Author: Martin Studer, Mirai Solutions GmbH
+# Author: Thomas Themel, Mirai Solutions GmbH
 #
 #############################################################################
 
-with.workbook <- function(data, expr, ...) {
-	env <- new.env(parent = parent.frame())
-	for(name in getDefinedNames(data, validOnly = TRUE)) {
-		tryCatch(assign(make.names(name), readNamedRegion(data, name = name, ...), env = env),
-			error = function(e) {
-				warning(e)
-			}
-		)
-	}
-	eval(substitute(expr), envir = env)
-}
+setGeneric("getReferenceCoordinates",
+		function(object, name) standardGeneric("getReferenceCoordinates"))
+
+setMethod("getReferenceCoordinates", 
+		signature(object = "workbook", name = "character"), 
+		function(object, name) {
+			res <- xlcCall(object, "getReferenceCoordinates", name)
+                        if(is.numeric(res)) { matrix(res, nrow=2, byrow=TRUE)+1 } else { res } 
+		}
+)

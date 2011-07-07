@@ -20,20 +20,19 @@
 
 #############################################################################
 #
-# Evaluate an expression in the context of Excel named regions
+# Setting a flag that forces Excel to recalculate formula values on opening
 # 
-# Author: Martin Studer, Mirai Solutions GmbH
+# Author: Thomas Themel, Mirai Solutions GmbH
 #
 #############################################################################
+ 
+setGeneric("setForceFormulaRecalculation",
+	function(object, sheet) standardGeneric("setForceFormulaRecalculation"))
 
-with.workbook <- function(data, expr, ...) {
-	env <- new.env(parent = parent.frame())
-	for(name in getDefinedNames(data, validOnly = TRUE)) {
-		tryCatch(assign(make.names(name), readNamedRegion(data, name = name, ...), env = env),
-			error = function(e) {
-				warning(e)
-			}
-		)
-	}
-	eval(substitute(expr), envir = env)
-}
+setMethod("setForceFormulaRecalculation", 
+		signature(object = "workbook", value = "logical"), 
+		function(object, sheet) {
+			jTryCatch(object@jobj$setForceFormulaRecalculation(value))
+                        invisible()
+		}
+)

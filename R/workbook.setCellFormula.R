@@ -20,20 +20,31 @@
 
 #############################################################################
 #
-# Evaluate an expression in the context of Excel named regions
+# Setting cell styles
 # 
 # Author: Martin Studer, Mirai Solutions GmbH
 #
 #############################################################################
 
-with.workbook <- function(data, expr, ...) {
-	env <- new.env(parent = parent.frame())
-	for(name in getDefinedNames(data, validOnly = TRUE)) {
-		tryCatch(assign(make.names(name), readNamedRegion(data, name = name, ...), env = env),
-			error = function(e) {
-				warning(e)
-			}
-		)
-	}
-	eval(substitute(expr), envir = env)
-}
+setGeneric("setCellFormula",
+		function(object, sheet, row, col, formula) standardGeneric("setCellFormula"))
+
+setMethod("setCellFormula", 
+		signature(object = "workbook", sheet = "numeric", row = "numeric", col = "numeric", 
+			 formula = "character"), 
+		function(object, sheet, row, col, formula) {
+			xlcCall(object, "setCellFormula", as.integer(sheet - 1), as.integer(row - 1),
+				as.integer(col - 1), formula)
+                        invisible()
+		}
+)
+
+setMethod("setCellFormula", 
+		signature(object = "workbook", sheet = "character", row = "numeric", col = "numeric", 
+				formula = "character"), 
+		function(object, sheet, row, col, formula) {
+			xlcCall(object, "setCellFormula", sheet, as.integer(row - 1),
+					as.integer(col - 1), formula)
+			invisible()
+		}
+)

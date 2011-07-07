@@ -20,20 +20,27 @@
 
 #############################################################################
 #
-# Evaluate an expression in the context of Excel named regions
+# Accessing cell formulae
 # 
-# Author: Martin Studer, Mirai Solutions GmbH
+# Author: Thomas Themel, Mirai Solutions GmbH
 #
 #############################################################################
 
-with.workbook <- function(data, expr, ...) {
-	env <- new.env(parent = parent.frame())
-	for(name in getDefinedNames(data, validOnly = TRUE)) {
-		tryCatch(assign(make.names(name), readNamedRegion(data, name = name, ...), env = env),
-			error = function(e) {
-				warning(e)
-			}
-		)
-	}
-	eval(substitute(expr), envir = env)
-}
+setGeneric("getCellFormula",
+		function(object, sheet, row, col) standardGeneric("getCellFormula"))
+
+setMethod("getCellFormula", 
+		signature(object = "workbook", sheet = "numeric", row = "numeric", col = "numeric"),
+		function(object, sheet, row, col) {
+			xlcCall(object, "getCellFormula", as.integer(sheet - 1), as.integer(row - 1),
+				as.integer(col - 1))
+		}
+)
+
+setMethod("getCellFormula", 
+		signature(object = "workbook", sheet = "character", row = "numeric", col = "numeric"),
+		function(object, sheet, row, col) {
+			xlcCall(object, "getCellFormula", sheet, as.integer(row - 1),
+					as.integer(col - 1))
+		}
+)

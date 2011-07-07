@@ -20,20 +20,23 @@
 
 #############################################################################
 #
-# Evaluate an expression in the context of Excel named regions
+# Tests around querying Excel reference coordinates
 # 
-# Author: Martin Studer, Mirai Solutions GmbH
+# Author: Thomas Themel, Mirai Solutions GmbH
 #
 #############################################################################
 
-with.workbook <- function(data, expr, ...) {
-	env <- new.env(parent = parent.frame())
-	for(name in getDefinedNames(data, validOnly = TRUE)) {
-		tryCatch(assign(make.names(name), readNamedRegion(data, name = name, ...), env = env),
-			error = function(e) {
-				warning(e)
-			}
-		)
-	}
-	eval(substitute(expr), envir = env)
+test.workbook.getReferenceCoordinates <- function() {
+	
+	# Create workbooks
+	wb.xls <- loadWorkbook(rsrc("resources/testWorkbookReferenceFormula.xls"), create = FALSE)
+	wb.xlsx <- loadWorkbook(rsrc("resources/testWorkbookReferenceFormula.xlsx"), create = FALSE)
+	
+	# Check if reference formulas match (*.xls)
+	checkTrue(all(getReferenceCoordinates(wb.xls, "FirstName") == matrix(c(1,1,1,1), nrow = 2, byrow=TRUE)))
+	checkException(getReferenceCoordinates(wb.xls, "NonExistentName"))
+
+	# Check if reference positions match (*.xlsx)
+	checkTrue(all(getReferenceCoordinates(wb.xlsx, "FirstName") == matrix(c(1,1,1,1), nrow = 2, byrow=TRUE)))
+	checkException(getReferenceCoordinates(wb.xlsx, "NonExistentName"))
 }

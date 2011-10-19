@@ -6,6 +6,8 @@ import(XLConnectJars)
 exportClasses(workbook, cellstyle)
 exportMethods(
 	addImage,
+	appendNamedRegion,
+	appendWorksheet,
 	cloneSheet,
 	createCellStyle,
 	createName,
@@ -18,6 +20,7 @@ exportMethods(
 	getCellFormula,
 	getDefinedNames,
 	getForceFormulaRecalculation,
+	getLastRow,
 	getReferenceFormula,
 	getReferenceCoordinates,
 	getSheetPos,
@@ -68,6 +71,7 @@ export(
 	aref2idx,
 	col2idx,
 	cref2idx,
+	extractSheetName,
 	idx2aref,
 	idx2col,
 	idx2cref,
@@ -78,8 +82,10 @@ export(
 	runUnitTests,
 	writeNamedRegionToFile,
 	writeWorksheetToFile,
+	xlcDump,
 	xlcFreeMemory,
 	xlcMemoryReport,
+	xlcRestore,
 	XLC
 )
 

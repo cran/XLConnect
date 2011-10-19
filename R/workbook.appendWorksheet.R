@@ -20,15 +20,35 @@
 
 #############################################################################
 #
-# Set XLConnect Java log level.
-#
-# This controls the logging behaviour of XLConnect's underlying Java code. If 
-# turned on, Java prints logging statements to the standard error.
+# Appending data to a worksheet
 # 
 # Author: Martin Studer, Mirai Solutions GmbH
 #
 #############################################################################
 
-setJavaLogLevel <- function(level) {
-	J("com.miraisolutions.xlconnect.utils.Logging")$withLevel(level)
-}
+setGeneric("appendWorksheet",
+		function(object, data, sheet, ...) standardGeneric("appendWorksheet"))
+
+setMethod("appendWorksheet", 
+	signature(object = "workbook", data = "ANY", sheet = "numeric"), 
+	function(object, data, sheet, header = FALSE, rownames = NULL) {
+		if(is.character(rownames))
+			data <- includeRownames(data, rownames)
+		# pass data.frame's to Java - construct RDataFrameWrapper Java object references
+		data <- lapply(wrapList(data), dataframeToJava)
+		xlcCall(object, "appendWorksheet", data, as.integer(sheet - 1), header)
+		invisible()
+	}
+)
+
+setMethod("appendWorksheet", 
+	signature(object = "workbook", data = "ANY", sheet = "character"), 
+	function(object, data, sheet, header = FALSE, rownames = NULL) {
+		if(is.character(rownames))
+			data <- includeRownames(data, rownames)
+		# pass data.frame's to Java - construct RDataFrameWrapper Java object references
+		data <- lapply(wrapList(data), dataframeToJava)
+		xlcCall(object, "appendWorksheet", data, sheet, header)
+		invisible()
+	}
+)

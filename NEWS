@@ -1,6 +1,49 @@
 XLConnect News
 --------------
 
+0.1-7	2011-10-19
+	*	Moved to Apache POI 3.8-beta4
+	*	Performance improvements when writing large xlsx files. This
+		fix was implemented on the Apache POI side.
+	*	An issue was fixed where the bounding box was not appropriately
+		determined when using readWorksheet. The bounding box is now
+		determined by first determining start and end row. Afterwards,
+		for all rows between the start and the end row the minimum and 
+		maximum column is determined.
+	*	An issue was fixed where the named region was automatically
+		expanded by one row when writing data to a named region without
+		column headers.
+	*	New workbook data extraction & replacement operators [, [<-,
+		[[, [[<-. These are "syntactic sugar" for the already existing
+		methods readWorksheet, writeWorksheet, readNamedRegion and
+		writeNamedRegion.
+	*	Support for saving workbooks to a new file ("save as").
+	*	Support for querying the last (non-empty) row in a worksheet
+	*	Support for including the row names of a data.frame when
+		writing to a worksheet or a named region. In addition, when
+		reading data from a worksheet or a named region a column
+		can be specified that should be turned into row names.
+	*	Extended use of setMissingValue. setMissingValue allows to
+		define a set of missing value identifiers that are recognized
+		as missing values when reading in data. The first element of
+		this set is used as missing value identifier when writing data.
+	*	Improvements to the definition of several generic functions &
+		methods
+	*	Improvements to the functions writeNamedRegionToFile &
+		writeWorksheetToFile. Also, an issue was fixed with
+		writeNamedRegionToFile where quoted sheet names (e.g. due to
+		a whitespace in the sheet name) would have caused an error.
+	*	Support for auto-sizing of columns.
+	*	New functionality to append data to named regions and work-
+		sheets: appendNamedRegion & appendWorksheet.
+	*	Several internal changes on the Java side: removing Java
+		logging, using java.util.ArrayList instead of java.util.Vector
+	*	Functionality for dumping and restoring objects to/from Excel
+		files (xlcDump, xlcRestore)
+	*	Added a package vignette
+	
+0.1-6	Non-public release
+		
 0.1-5	2011-07-07
 	*	Support for setting/getting cell formulas. See methods
 		set/getCellFormula.

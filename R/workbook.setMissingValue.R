@@ -20,10 +20,13 @@
 
 #############################################################################
 #
-# Setting the missing value string
+# Setting missing value strings
 #
-# This defines what string is written to a cell in case a missing value (NA)
-# is encountered. If NULL, missing values are represented by blank cells.
+# Missing value strings are used when reading and writing data. If data is
+# written, the first element of the missing value string vector is used
+# as a missing value identifier. If data is read, values are checked against
+# the set of defined missing value strings - if the string value matches
+# any of the defined missing values, NA will be assumed.
 # 
 # Author: Martin Studer, Mirai Solutions GmbH
 #
@@ -36,9 +39,18 @@ setMethod("setMissingValue",
 		signature(object = "workbook", value = "ANY"), 
 		function(object, value) {
 			if(is.null(value))
-				xlcCall(object, "setMissingValue", .jnull("java/lang/String"))
-			else
-				xlcCall(object, "setMissingValue", as.character(value))
+				xlcCall(object, "setMissingValue", 
+					.jarray(.jnull("java/lang/String"), contents.class = "java/lang/String"))
+			else {
+				value = unique(as.character(value))
+				# convert to array
+				res = .jarray(value)
+				# NA to Java null
+				if(any(is.na(value)))
+					res[[which(is.na(value))]] = .jnull("java/lang/String")
+				
+				xlcCall(object, "setMissingValue", res)
+			}
 			invisible()
 		}
 )

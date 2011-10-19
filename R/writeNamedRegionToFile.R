@@ -27,23 +27,19 @@
 #############################################################################
 
 
-writeNamedRegionToFile <- function(file, data, name, formula=NA, header = TRUE, styleAction = XLC$STYLE_ACTION.XLCONNECT) {
-  # if formula is not specified, we expect a workbook with predefined regions
-  create.names <- !is.na(formula)
-  wb <- loadWorkbook(file,create=create.names)  
+writeNamedRegionToFile <- function(file, data, name, formula = NA, ..., 
+		styleAction = XLC$STYLE_ACTION.XLCONNECT) {
+
+  wb <- loadWorkbook(file, create = !file.exists(file))  
   setStyleAction(wb, styleAction)
   
-  if(create.names) { 
-    # extract "SheetX" from "SheetX!$A$1:$B$2"
-    sheetNames <- function(formula) {
-      sub("!.*", "", formula[grep("!", formula)])
-    }
-
-    createSheet(wb, sheetNames(formula))
+  if(!is.na(formula)) {
+	sheets = extractSheetName(formula)
+    createSheet(wb, sheets[sheets != ""])
     createName(wb, name, formula)
   }
   
-  writeNamedRegion(wb, data, name, header);
+  writeNamedRegion(wb, data, name, ...);
   
   saveWorkbook(wb)
   invisible(wb)  

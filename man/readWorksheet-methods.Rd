@@ -2,27 +2,15 @@
 \docType{methods}
 \alias{readWorksheet}
 \alias{readWorksheet-methods}
-\alias{readWorksheet,workbook,character,missing,missing,missing,missing,logical-method}
-\alias{readWorksheet,workbook,character,missing,missing,missing,missing,missing-method}
-\alias{readWorksheet,workbook,character,numeric,numeric,numeric,numeric,logical-method}
-\alias{readWorksheet,workbook,character,numeric,numeric,numeric,numeric,missing-method}
-\alias{readWorksheet,workbook,numeric,missing,missing,missing,missing,logical-method}
-\alias{readWorksheet,workbook,numeric,missing,missing,missing,missing,missing-method}
-\alias{readWorksheet,workbook,character,numeric,missing,missing,missing,missing-method}
-\alias{readWorksheet,workbook,numeric,numeric,numeric,numeric,numeric,logical-method}
-\alias{readWorksheet,workbook,numeric,numeric,numeric,numeric,numeric,missing-method}
+\alias{readWorksheet,workbook,character-method}
+\alias{readWorksheet,workbook,numeric-method}
 \title{Reading data from worksheets}
 \description{
 Reads data from worksheets of a \code{\linkS4class{workbook}}.
 }
 \usage{
-\S4method{readWorksheet}{workbook,numeric,numeric,numeric,numeric,numeric,logical}(object,sheet,startRow,startCol,endRow,endCol,header)
-\S4method{readWorksheet}{workbook,character,missing,missing,missing,missing,logical}(object,sheet,startRow,startCol,endRow,endCol,header)
-\S4method{readWorksheet}{workbook,numeric,missing,missing,missing,missing,logical}(object,sheet,startRow,startCol,endRow,endCol,header)
-\S4method{readWorksheet}{workbook,character,missing,missing,missing,missing,missing}(object,sheet,startRow,startCol,endRow,endCol,header)
-\S4method{readWorksheet}{workbook,numeric,missing,missing,missing,missing,missing}(object,sheet,startRow,startCol,endRow,endCol,header)
-\S4method{readWorksheet}{workbook,character,numeric,numeric,numeric,numeric,missing}(object,sheet,startRow,startCol,endRow,endCol,header)
-\S4method{readWorksheet}{workbook,numeric,numeric,numeric,numeric,numeric,missing}(object,sheet,startRow,startCol,endRow,endCol,header)
+\S4method{readWorksheet}{workbook,numeric}(object,sheet,startRow,startCol,endRow,endCol,header,rownames)
+\S4method{readWorksheet}{workbook,character}(object,sheet,startRow,startCol,endRow,endCol,header,rownames)
 }
 
 \arguments{
@@ -34,6 +22,9 @@ Reads data from worksheets of a \code{\linkS4class{workbook}}.
   \item{endCol}{The index of the last column to read from}
   \item{header}{Interpret the first row of the specified area as column
     headers. The default is \code{TRUE}.}
+  \item{rownames}{Index (\code{numeric}) or name (\code{character}) of column that
+  should be used as row names. The corresponding column will be removed from the data
+  set. Defaults to \code{NULL} which means that no row names are applied.}
 }
 
 \details{
@@ -46,10 +37,9 @@ is interpreted as column names of the resulting \code{data.frame}.\cr If
 assumed. If \code{startCol <= 0} then the column  of the first (logical)
 cell of the start row (\code{startRow}) is assumed. If \code{endRow <= 0}
 then the last available  (logical) row is assumed. If \code{endCol <= 0}
-then the column of the last (logical) cell of the end column
-(\code{endCol}) is assumed. In other words, if no boundaries are
-specified \code{readWorksheet} assumes the "bounding box" of the data as
-the corresponding boundaries.\cr\cr
+then the maximum column between \code{startRow} and \code{endRow} is assumed. 
+In other words, if no boundaries are specified \code{readWorksheet} assumes 
+the "bounding box" of the data as the corresponding boundaries.\cr\cr
 
 If all four coordinate arguments are missing this behaves as above with
 \code{startRow = 0}, \code{startCol = 0}, \code{endRow = 0} and

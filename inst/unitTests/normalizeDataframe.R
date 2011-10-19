@@ -35,21 +35,22 @@
 #
 #############################################################################
 
-
 normalizeDataframe <- function(df) {
-	rownames(df) <- NULL
+	att = attr(df, "row.names")
 	res <- lapply(df, 
-			function(col) {
-				if(is(col, "factor")) {
-					as.character(col)
-				} else if(is(col, "Date") || is(col, "POSIXt")) {
-					# Get rid of "original" timezone and assume UTC
-					as.POSIXct(
-						format(col, format = options("XLConnect.dateTimeFormat")[[1]]), 
-						tz = "UTC")
-				} else
-					col
-			})
-	
-	data.frame(res, stringsAsFactors = F)
+		function(col) {
+			if(is(col, "factor")) {
+				as.character(col)
+			} else if(is(col, "Date") || is(col, "POSIXt")) {
+				# Get rid of "original" timezone and assume UTC
+				as.POSIXct(
+					format(col, format = options("XLConnect.dateTimeFormat")[[1]]), 
+					tz = "UTC")
+			} else
+				col
+		}
+	)
+	res = data.frame(res, stringsAsFactors = F)
+	attr(res, "row.names") = att
+	res
 }

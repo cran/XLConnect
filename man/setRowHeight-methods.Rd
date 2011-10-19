@@ -2,22 +2,23 @@
 \docType{methods}
 \alias{setRowHeight}
 \alias{setRowHeight-methods}
-\alias{setRowHeight,workbook,character,numeric,numeric-method}
-\alias{setRowHeight,workbook,numeric,numeric,numeric-method}
+\alias{setRowHeight,workbook,character-method}
+\alias{setRowHeight,workbook,numeric-method}
 \title{Setting the height of a row in a worksheet}
 \description{
 Sets the height of a row in a worksheet.
 }
 \usage{
-\S4method{setRowHeight}{workbook,character,numeric,numeric}(object,sheet,row,height)
-\S4method{setRowHeight}{workbook,numeric,numeric,numeric}(object,sheet,row,height)
+\S4method{setRowHeight}{workbook,character}(object,sheet,row,height)
+\S4method{setRowHeight}{workbook,numeric}(object,sheet,row,height)
 }
 
 \arguments{
   \item{object}{The \code{\linkS4class{workbook}} to use}
   \item{sheet}{The name or index of the sheet to edit}
   \item{row}{The index of the row to resize}
-  \item{height}{The height in points of the specified row}
+  \item{height}{The height in points. If \code{height < 0} (default: -1),
+  the row will be sized to the sheet's default row height.}
 }
 
 \details{

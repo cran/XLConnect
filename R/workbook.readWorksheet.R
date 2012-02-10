@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010 Mirai Solutions GmbH
+# Copyright (C) 2010-2012 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -33,10 +33,12 @@ setGeneric("readWorksheet",
 setMethod("readWorksheet", 
 		signature(object = "workbook", sheet = "numeric"), 
 		function(object, sheet, startRow = 0, startCol = 0, endRow = 0, endCol = 0, header = TRUE,
-				 rownames = NULL) {	
+				 rownames = NULL, colTypes = character(0), forceConversion = FALSE, 
+				 dateTimeFormat = getOption("XLConnect.dateTimeFormat")) {	
 			# returns a list of RDataFrameWrapper Java object references)
 			dataFrame <- xlcCall(object, "readWorksheet", as.integer(sheet - 1), as.integer(startRow - 1), 
-				as.integer(startCol - 1), as.integer(endRow - 1), as.integer(endCol - 1), header, SIMPLIFY = FALSE)
+				as.integer(startCol - 1), as.integer(endRow - 1), as.integer(endCol - 1), header, 
+				.jarray(classToXlcType(colTypes)), forceConversion, dateTimeFormat, SIMPLIFY = FALSE)
 			# construct data.frame
 			dataFrame <- lapply(dataFrame, function(x) {
 				extractRownames(dataframeFromJava(x), rownames)
@@ -51,10 +53,12 @@ setMethod("readWorksheet",
 setMethod("readWorksheet", 
 		signature(object = "workbook", sheet = "character"), 
 		function(object, sheet, startRow = 0, startCol = 0, endRow = 0, endCol = 0, header = TRUE,
-				 rownames = NULL) {	
+				 rownames = NULL, colTypes = character(0), forceConversion = FALSE, 
+				 dateTimeFormat = getOption("XLConnect.dateTimeFormat")) {	
 			# returns a list of RDataFrameWrapper Java object references)
 			dataFrame <- xlcCall(object, "readWorksheet", sheet, as.integer(startRow - 1), as.integer(startCol - 1), 
-				as.integer(endRow - 1), as.integer(endCol - 1), header, SIMPLIFY = FALSE)
+				as.integer(endRow - 1), as.integer(endCol - 1), header, .jarray(classToXlcType(colTypes)), 
+				forceConversion, dateTimeFormat, SIMPLIFY = FALSE)
 			# construct data.frame
 			dataFrame <- lapply(dataFrame, function(x) {
 				extractRownames(dataframeFromJava(x), rownames)

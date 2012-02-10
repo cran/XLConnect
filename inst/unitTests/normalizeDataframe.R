@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010 Mirai Solutions GmbH
+# Copyright (C) 2010-2012 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -39,15 +39,15 @@ normalizeDataframe <- function(df) {
 	att = attr(df, "row.names")
 	res <- lapply(df, 
 		function(col) {
-			if(is(col, "factor")) {
-				as.character(col)
-			} else if(is(col, "Date") || is(col, "POSIXt")) {
+			if(is(col, "logical") || is(col, "numeric") || is(col, "character"))
+				col
+			else if(is(col, "Date") || is(col, "POSIXt")) {
 				# Get rid of "original" timezone and assume UTC
 				as.POSIXct(
 					format(col, format = options("XLConnect.dateTimeFormat")[[1]]), 
 					tz = "UTC")
 			} else
-				col
+				as.character(col)
 		}
 	)
 	res = data.frame(res, stringsAsFactors = F)

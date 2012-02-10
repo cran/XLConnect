@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010 Mirai Solutions GmbH
+# Copyright (C) 2010-2012 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -31,9 +31,11 @@ setGeneric("readNamedRegion",
 
 setMethod("readNamedRegion", 
 	signature(object = "workbook"), 
-	function(object, name, header = TRUE, rownames = NULL) {	
+	function(object, name, header = TRUE, rownames = NULL, colTypes = character(0),
+			forceConversion = FALSE, dateTimeFormat = getOption("XLConnect.dateTimeFormat")) {
 		# returns a list of RDataFrameWrapper Java object references
-		dataFrame <- xlcCall(object, "readNamedRegion", name, header, SIMPLIFY = FALSE)
+		dataFrame <- xlcCall(object, "readNamedRegion", name, header, .jarray(classToXlcType(colTypes)), 
+				forceConversion, dateTimeFormat, SIMPLIFY = FALSE)
 		# construct data.frame
 		dataFrame <- lapply(dataFrame, function(x) {
 			extractRownames(dataframeFromJava(x), rownames)

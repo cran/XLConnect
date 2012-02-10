@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010 Mirai Solutions GmbH
+# Copyright (C) 2010-2012 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -49,16 +49,16 @@ dataframeToJava <- function(df) {
 		else if(is(v, "character")) {
 			jTryCatch(dFrame$addStringColumn(cnames[i], .jarray(v), .jarray(is.na(v))))
 		}
-		else if(is(v, "factor")) {
-			v <- as.character(v)
-			jTryCatch(dFrame$addStringColumn(cnames[i], .jarray(v), .jarray(is.na(v))))
-		}
 		else if(is(v, "Date") || is(v, "POSIXt")) {
 			v <- format(v, format = options("XLConnect.dateTimeFormat")[[1]])
 			jTryCatch(dFrame$addDateTimeColumn(cnames[i], .jarray(v), .jarray(is.na(v))))
 		}
-		else
-			stop("Unsupported data type (class) detected!")			
+		else { # e.g. factor or any other type
+			v <- as.character(v)
+			if(length(v) != nrow(df))
+				stop(sprintf("Conversion to character for column %s failed! Check the class.", cnames[i]))
+			jTryCatch(dFrame$addStringColumn(cnames[i], .jarray(v), .jarray(is.na(v))))
+		}
 	}
 	
 	dFrame

@@ -1,6 +1,6 @@
-508e982254c64f715f51743514336b44 *DESCRIPTION
+ac5c205054ff13cfd5310bddb79f190c *DESCRIPTION
 66fe2c81b2d699aa1ee067eec56c4b18 *NAMESPACE
-e274cf33726d1540492b67ef55bb5377 *NEWS
+d2b56935011e5c86b3f2f4d8e16b9770 *NEWS
 62561715e1ea3c7a2853a64d95048ec3 *NOTICE
 f201486f945a90b871d0a1a8198e5045 *R/XLConnectSettings.R
 62773251f5a51d154fbde4411a923ecc *R/aref.R
@@ -119,7 +119,7 @@ b4049e00870879e531046be22e5d04f6 *demo/readWorksheet.R
 582f37b3ba6acb4f46bfd04dbc223659 *demo/writeLargeData.R
 76a0553f12e8e823cc185bd1cb6fa383 *demo/writeNamedRegion.R
 805725c46e91a4c3eea1c857a734684a *demo/writeWorksheet.R
-205f42ec3b573485ad2e38e39f51781b *inst/XLConnect.R
+7733ede91318adcb449dfc04e43c0f0f *inst/XLConnect.R
 d999cd2e84875e070344f36618533262 *inst/demoFiles/SwitzerlandFlag.jpg
 c6bd73b8c52a29c113619a8c0cae2044 *inst/demoFiles/conversion.xlsx
 ebecf379154d7da437b4d01441573f1f *inst/demoFiles/errorCell.xlsx
@@ -129,8 +129,8 @@ ebecf379154d7da437b4d01441573f1f *inst/demoFiles/errorCell.xlsx
 702d5951e24df1aa9cda7becb22d44d7 *inst/demoFiles/mydata.xlsx
 1aae3a0a2a1501319d52575ab484f978 *inst/demoFiles/template.xlsx
 0036c8cab21f9f3037239424707d383d *inst/demoFiles/template2.xlsx
-3ac59546be77bf3dde0a53ada2f4bc60 *inst/doc/XLConnect.Rnw
-8203cd35882fbef012924f435aa6111d *inst/doc/XLConnect.pdf
+e2a634b8fdb2a3a04e5e6277af8d7c22 *inst/doc/XLConnect.Rnw
+b1426eb8b8aaf5d8c5bbf89c62e067b6 *inst/doc/XLConnect.pdf
 701e14a034ed43a2b222131803f30e7c *inst/doc/img/AdvancedExample1a.png
 86e68d9de76bc93c5f9128f702316014 *inst/doc/img/AdvancedExample1b.png
 b2fc886e9f8fdad86a2da5a7d5139931 *inst/doc/img/AdvancedExample1c.png
@@ -246,7 +246,7 @@ f04f6464261e92c598e79c143f2a9145 *inst/unitTests/runit.writeNamedRegionToFile.R
 bd6427804e1b89058e4263ec9d2aa5cb *inst/unitTests/runit.writeWorksheetToFile.R
 b4bd2d4a08c81b2d8fe62530489cd753 *inst/unitTests/workbook.setForceFormulaRecalculation.R
 339558f365978f28822affabf4e65c7f *man/XLC.Rd
-f3b1b06d19c3e24b531111e60c3caaf1 *man/XLConnect-package.Rd
+3641a1a713b64704eb9d87c1156e6de1 *man/XLConnect-package.Rd
 da1a6eab48792975e89b059af1f9ca21 *man/XLConnectSettings.Rd
 ef7332d3d4010b18616fc8c953b87fe8 *man/addImage-methods.Rd
 f33a910f99451c4f2eef5f441f45fbdb *man/appendNamedRegion-methods.Rd

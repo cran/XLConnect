@@ -1,8 +1,8 @@
 Package: XLConnect
 Type: Package
 Title: Excel Connector for R
-Version: 0.2-2
-Date: 2012-10-15
+Version: 0.2-3
+Date: 2012-11-05
 Author: Mirai Solutions GmbH
 Maintainer: Martin Studer <martin.studer@mirai-solutions.com>
 URL: http://www.mirai-solutions.com ,
@@ -15,6 +15,6 @@ Suggests: RUnit, lattice, ggplot2 (>= 0.9.0), scales, fImport,
 Description: Manipulate Excel files from R
 License: GPL-3
 LazyLoad: yes
-Packaged: 2012-10-15 18:58:41 UTC; mstuder
+Packaged: 2012-11-05 16:51:53 UTC; mstuder
 Repository: CRAN
-Date/Publication: 2012-10-15 20:09:49
+Date/Publication: 2012-11-05 17:27:26

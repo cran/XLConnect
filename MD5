@@ -1,6 +1,6 @@
-ac5c205054ff13cfd5310bddb79f190c *DESCRIPTION
+8a11d74d8864f4d0e53e1398728ad917 *DESCRIPTION
 66fe2c81b2d699aa1ee067eec56c4b18 *NAMESPACE
-d2b56935011e5c86b3f2f4d8e16b9770 *NEWS
+e5417068d4e058ac50899cc191bb8a09 *NEWS
 62561715e1ea3c7a2853a64d95048ec3 *NOTICE
 f201486f945a90b871d0a1a8198e5045 *R/XLConnectSettings.R
 62773251f5a51d154fbde4411a923ecc *R/aref.R
@@ -19,12 +19,12 @@ e54a026b7cf2b08c702549f7e7f91d0a *R/cellstyle.setWrapText.R
 672d163006f8d2d0c533aa945cb9c3bb *R/cref2idx.R
 8ac5424ab2844fcf51d24060b77899b6 *R/dataframeFromJava.R
 38c7c480578ae8dd027462758c064241 *R/dataframeToJava.R
-65dc38775d399fc816836a893189402e *R/extractRownames.R
+f61c7f5c704e1bd8c76eeb558f7b4815 *R/extractRownames.R
 f378728d7df9a1993d9c27146df8639f *R/extractSheetName.R
 7437c08208596d90ef8c8a80aa1b1ba6 *R/idx2aref.R
 bd718302535088e155adf1bd8ede3bd1 *R/idx2col.R
 62a0f999f2eb3b08c2a63248910ad641 *R/idx2cref.R
-0a3b7b9f90347f6db38179026e722fdb *R/includeRownames.R
+7989a68f9c989882625a9790c8b52946 *R/includeRownames.R
 69456608e2afa25baa82214ed5e764fe *R/jTryCatch.R
 09f59ea2e63ae226faaae180755a7b35 *R/loadWorkbook.R
 0aa0ad25412310594a3f5a9284a279f3 *R/mirai.R
@@ -69,8 +69,8 @@ ceeee02f67da56b797e8ce5c4f5f8120 *R/workbook.mergeCells.R
 6e4f608275bb3a9ab7e032df7a362a9e *R/workbook.onErrorCell.R
 4366c5d413d15677eaccc5f806b1d63a *R/workbook.operators.R
 54a3dbc618c7a662bbb2e5395c73129d *R/workbook.print.R
-bc145676dcd00ce128d06eed617ad9bc *R/workbook.readNamedRegion.R
-813ccea9b51562deabb8ca8ecfa71d28 *R/workbook.readWorksheet.R
+b95c432ab7169cf9cf7cd79e71eb4854 *R/workbook.readNamedRegion.R
+60010e160a8ef403bd5b386ddf5f1a5b *R/workbook.readWorksheet.R
 4127cd504ed4c66abb727f03a4adad4b *R/workbook.removeName.R
 2469f9f7f062df1f8e2ceaab93600dd3 *R/workbook.removePane.R
 d1aa3821cdbe6676affc51cc6a208123 *R/workbook.removeSheet.R
@@ -96,7 +96,7 @@ eb0b29485868cb27cda48f1ffedc6c67 *R/workbook.unhideSheet.R
 70279d2cea90f4d50fc6a3e85c7a30d0 *R/workbook.writeNamedRegion.R
 83502b99a9b8a99cdd727d0816e2a423 *R/workbook.writeWorksheet.R
 4ae01d087c6078cd723fbca4a75d3a9e *R/wrapList.R
-022687240c91aa1133b029a5b5dd8f4f *R/writeNamedRegionToFile.R
+43b9fda96af61932c93a8fb23fecf49d *R/writeNamedRegionToFile.R
 0f62a79a75d4cf7415f897866769043b *R/writeWorksheetToFile.R
 7821ee939ea585b9ba7e04d7d3fceb4c *R/xlcCall.R
 4c31c9a96e57c2aa183996611d675285 *R/xlcDump.R
@@ -119,7 +119,7 @@ b4049e00870879e531046be22e5d04f6 *demo/readWorksheet.R
 582f37b3ba6acb4f46bfd04dbc223659 *demo/writeLargeData.R
 76a0553f12e8e823cc185bd1cb6fa383 *demo/writeNamedRegion.R
 805725c46e91a4c3eea1c857a734684a *demo/writeWorksheet.R
-7733ede91318adcb449dfc04e43c0f0f *inst/XLConnect.R
+1903c8c8b1cb1984587b905c411cc90d *inst/XLConnect.R
 d999cd2e84875e070344f36618533262 *inst/demoFiles/SwitzerlandFlag.jpg
 c6bd73b8c52a29c113619a8c0cae2044 *inst/demoFiles/conversion.xlsx
 ebecf379154d7da437b4d01441573f1f *inst/demoFiles/errorCell.xlsx
@@ -129,8 +129,8 @@ ebecf379154d7da437b4d01441573f1f *inst/demoFiles/errorCell.xlsx
 702d5951e24df1aa9cda7becb22d44d7 *inst/demoFiles/mydata.xlsx
 1aae3a0a2a1501319d52575ab484f978 *inst/demoFiles/template.xlsx
 0036c8cab21f9f3037239424707d383d *inst/demoFiles/template2.xlsx
-e2a634b8fdb2a3a04e5e6277af8d7c22 *inst/doc/XLConnect.Rnw
-b1426eb8b8aaf5d8c5bbf89c62e067b6 *inst/doc/XLConnect.pdf
+905bcf4f19e2256aacd524cc2a4ee6c4 *inst/doc/XLConnect.Rnw
+a2906768df67b7002d4a1c122be53a35 *inst/doc/XLConnect.pdf
 701e14a034ed43a2b222131803f30e7c *inst/doc/img/AdvancedExample1a.png
 86e68d9de76bc93c5f9128f702316014 *inst/doc/img/AdvancedExample1b.png
 b2fc886e9f8fdad86a2da5a7d5139931 *inst/doc/img/AdvancedExample1c.png
@@ -147,8 +147,8 @@ eced2b147a0072337090b832906c84b1 *inst/doc/img/TwitterLogo.png
 cec2ad65dd0b3c3d0befb8dc503b2512 *inst/doc/img/mtcars.png
 6f108a2b733bed34032d2c48d8a8a7de *inst/doc/tikzCodeBlock.sty
 d529d0b6c2dbc641457b30b1c134f94b *inst/doc/tikzDeviceMacros.tex
-028b9710f8e2da63d97dcf22acc7f110 *inst/java/XLConnect-0.2-1-sources.jar
-617c8769c4bae4bc7e6b1c7d6715d000 *inst/java/XLConnect-0.2-1.jar
+f6db64211d3bb69434a934111a3d1abf *inst/java/XLConnect-0.2-3-sources.jar
+4df4006dede8705228e53512038648f5 *inst/java/XLConnect-0.2-3.jar
 e74d878cbce280103571d82b78b09d43 *inst/unitTests/Makefile
 d51cb81fc91c580184ee7576291ccc02 *inst/unitTests/checkNoException.R
 3b75d69d41a7472f0e5404e44a419531 *inst/unitTests/normalizeDataframe.R
@@ -238,7 +238,7 @@ d531e4f67d659a8430e8d6a8949a2557 *inst/unitTests/runit.workbook.saveWorkbook.R
 a23662638ae889e97cca99e8bba12cfd *inst/unitTests/runit.workbook.setMissingValue.R
 626e4412c299b35844fc3d6c633944ba *inst/unitTests/runit.workbook.setSheetPos.R
 c3855dda72a3001a071e32539c3108df *inst/unitTests/runit.workbook.unhideSheet.R
-dd21cda4ae11c112df30c65e6f8d408a *inst/unitTests/runit.workbook.writeNamedRegion.R
+401021e221504a60bf169b0c392a4cdb *inst/unitTests/runit.workbook.writeNamedRegion.R
 766de52ab0542f9db0bf7bc015791e76 *inst/unitTests/runit.workbook.writeWorksheet.R
 81f85dc1495490858e9583eeab2042b4 *inst/unitTests/runit.writeAndReadNamedRegion.R
 5934df65e57934a80655024e963ae0ba *inst/unitTests/runit.writeAndReadWorksheet.R
@@ -246,7 +246,7 @@ f04f6464261e92c598e79c143f2a9145 *inst/unitTests/runit.writeNamedRegionToFile.R
 bd6427804e1b89058e4263ec9d2aa5cb *inst/unitTests/runit.writeWorksheetToFile.R
 b4bd2d4a08c81b2d8fe62530489cd753 *inst/unitTests/workbook.setForceFormulaRecalculation.R
 339558f365978f28822affabf4e65c7f *man/XLC.Rd
-3641a1a713b64704eb9d87c1156e6de1 *man/XLConnect-package.Rd
+e93591eca253b47443086bbf4e4827a5 *man/XLConnect-package.Rd
 da1a6eab48792975e89b059af1f9ca21 *man/XLConnectSettings.Rd
 ef7332d3d4010b18616fc8c953b87fe8 *man/addImage-methods.Rd
 f33a910f99451c4f2eef5f441f45fbdb *man/appendNamedRegion-methods.Rd
@@ -254,10 +254,10 @@ fc4f992adb9c498bae0dc3c2d650b7db *man/appendWorksheet-methods.Rd
 db73f0d24db7c7c97d88b37f3486625c *man/aref.Rd
 89ba642a542dc8338701fdc1c53ee8dd *man/aref2idx.Rd
 5a020509a68628143ed74f051c61e166 *man/cellstyle-class.Rd
-d6de88dd89309cecadde5361b72f8743 *man/clearNamedRegion-methods.Rd
-d81d96ce98a6369c9392ae79999e9532 *man/clearRange-methods.Rd
-055b68124e16a839e7a2d14332469c33 *man/clearRangeFromReference-methods.Rd
-5add71cc2b7f03d9ef8c84be3bbbd956 *man/clearSheet-methods.Rd
+bbd8fbc67122514b85c3703d6b35b0bb *man/clearNamedRegion-methods.Rd
+343c7723c9b578ff6e9dbadd5de3723d *man/clearRange-methods.Rd
+6ea5d11375411ce3b854336c11de5a38 *man/clearRangeFromReference-methods.Rd
+a389471ca4a4ad0003a91a21ef10ae31 *man/clearSheet-methods.Rd
 08ac76e68715d48bd3bf5dddb7772175 *man/cloneSheet-methods.Rd
 8b9bcac526a77669bdc8bda7faa43d4c *man/col2idx.Rd
 e19eb8c550101b7f9b118eb00114e2b2 *man/createCellStyle-methods.Rd

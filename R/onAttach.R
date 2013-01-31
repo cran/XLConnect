@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2012 Mirai Solutions GmbH
+# Copyright (C) 2010-2013 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -20,14 +20,15 @@
 
 #############################################################################
 #
-# Additional check function used in RUnit tests
-# Checks that an expression is not causing any exceptions
+# XLConnect Package Initialization
 # 
 # Author: Martin Studer, Mirai Solutions GmbH
 #
 #############################################################################
 
-checkNoException <- function(expr) {
-	res <- try(expr)
-	checkTrue(!is(res, "try-error"))
+.onAttach <- function(libname, pkgname) {
+  # Print package information
+  pdesc <- packageDescription(pkgname)
+  packageStartupMessage(pdesc$Package, " ", pdesc$Version, " by ", pdesc$Author)
+  packageStartupMessage(pdesc$URL)
 }

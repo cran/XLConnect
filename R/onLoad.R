@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2012 Mirai Solutions GmbH
+# Copyright (C) 2010-2013 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -27,14 +27,9 @@
 #############################################################################
 
 .onLoad <- function(libname, pkgname) {
-	# Print package information
-	pdesc <- packageDescription(pkgname)
-	packageStartupMessage(pdesc$Package, " ", pdesc$Version, " by ", pdesc$Author)
-	packageStartupMessage(pdesc$URL)
-	
 	# Load Java dependencies (all jars inside the java subfolder)
 	.jpackage(name = pkgname, jars = "*")
 	
 	# Perform general XLConnect settings - pass package description
-	XLConnectSettings(pdesc)
+	XLConnectSettings(packageDescription(pkgname))
 }

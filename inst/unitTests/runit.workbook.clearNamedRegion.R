@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2012 Mirai Solutions GmbH
+# Copyright (C) 2010-2013 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -33,21 +33,23 @@ test.workbook.clearNamedRegion <- function() {
 	wb.xlsx <- loadWorkbook(rsrc("resources/testWorkbookClearCells.xlsx"), create = FALSE)
 	
 	checkDf <- data.frame(
-			"eight" = 36:40,
+			"one" = 1:5,	
+			"two" = 6:10,
+			"three" = 11:15,
+			"four" = 16:20,
+			"five" = 21:25,
+			"six" = 26:30,
+			"seven" = 31:35,
 			stringsAsFactors = F
 	)
 	
-	# Check that clearing all the named regions from a sheet returns an empty sheet (*.xls)
+	# Check that clearing 2 of 3 named regions in a sheet returns only the third one (*.xls)
 	clearNamedRegion(wb.xls, c("region1", "region2"))
-	res <- readWorksheet(wb.xls, "clearNamedRegion", endRow = 7, header = TRUE)
-	checkEquals(res, checkDf)
-	res <- readWorksheet(wb.xls, "clearNamedRegion", startRow=10, endRow = 15, header = TRUE)
+	res <- readWorksheet(wb.xls, "clearNamedRegion", header = TRUE)
 	checkEquals(res, checkDf)
 	
-	# Check that clearing all the named regions from a sheet returns an empty sheet (*.xlsx)
+	# Check that clearing 2 of 3 named regions in a sheet returns only the third one (*.xlsx)
 	clearNamedRegion(wb.xlsx, c("region1", "region2"))
-	res <- readWorksheet(wb.xlsx, "clearNamedRegion", endRow = 7, header = TRUE)
-	checkEquals(res, checkDf)
-	res <- readWorksheet(wb.xlsx, "clearNamedRegion", startRow=10, endRow = 15, header = TRUE)
+	res <- readWorksheet(wb.xlsx, "clearNamedRegion", header = TRUE)
 	checkEquals(res, checkDf)
 }

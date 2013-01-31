@@ -8,7 +8,6 @@
 %\VignetteDepends{forecast}
 %\VignetteDepends{ggplot2}
 %\VignetteDepends{scales}
-%%\VignetteDepends{tikzDevice}
 %\VignetteDepends{zoo}
 % \usepackage{Sweave}
 \usepackage[latin1]{inputenc}
@@ -431,7 +430,8 @@ the \\\code{writeWorksheetToFile()} function:
 
 <<simpleEx,echo=T,results=hide>>=
 require(XLConnect)
-writeWorksheetToFile("XLConnectExample2.xlsx", data = ChickWeight, sheet = "chickSheet", startRow = 3, startCol = 4)
+writeWorksheetToFile("XLConnectExample2.xlsx", data = ChickWeight, 
+sheet = "chickSheet", startRow = 3, startCol = 4)
 @
 
 \code{writeWorksheetToFile()} loads the workbook, creates the sheet and finally saves the workbook. When you only need 
@@ -528,7 +528,7 @@ readNamedRegion(object, name, header = TRUE)
 \end{tikzCodeBlock}
 
 \subsubsection{readNamedRegionFromFile() - reading named regions of an Excel file}
-\code{readNamedRegionFromFile()} is a conveniece wrapper function which allows for reading named regions
+\code{readNamedRegionFromFile()} is a convenient wrapper function which allows for reading named regions
 from an Excel file with one call. The function subsequently calls \code{loadWorkbook()} and 
 \code{readNamedRegion()}.
 
@@ -614,8 +614,8 @@ Loading the required packages:
 	require(fImport)
 	require(forecast)
 	require(zoo)
-	require(ggplot2) # >= 0.9.0
-	require(scales)
+	require(ggplot2) # >= 0.9.3
+  require(scales)
 @ 
 
 Preparing the data to be reported:
@@ -795,11 +795,12 @@ gcurr[["Type"]] = ifelse(gcurr$Time %in% currFit$Time,
 # Create a png graph showing the currencies in the context 
 # of the Swiss Franc
 png(filename = "swiss_franc.png", width = 800, height = 600)
-ggplot(gcurr, aes(Time, Value, colour = Currency, linetype = Type)) +
-geom_line() + stat_smooth(method = "loess") + xlab("") +
-scale_y_continuous("Change to baseline", labels = percent) +
-opts(title = "Currencies vs Swiss Franc",
-axis.title.y = theme_text(size = 10, angle = 90, vjust = 0.3))
+p = ggplot(gcurr, aes(Time, Value, colour = Currency, linetype = Type)) +
+  geom_line() + stat_smooth(method = "loess") +
+  scale_y_continuous("Change to baseline", labels = percent) +
+  labs(title = "Currencies vs Swiss Franc", x = "") +
+  theme(axis.title.y = element_text(size = 10, angle = 90, vjust = 0.3))
+print(p)
 dev.off()
 
 # Define where the image should be placed via a named region;
@@ -836,10 +837,30 @@ you will be running the code at a different time.
 
 We have introduced the following updates in version \Sexpr{getOption("XLConnect.Version")} of \pkg{XLConnect}:
 \begin{itemize}
-	\item{Added new methods for clearing sheets, named regions and cell ranges}
-	\item{Fixed an issue with overwriting cells of a different type}
-	\item{Fixed issue with failing unit tests on R-devel (issue with Excel date/time values and increased precision of
-		  all.equal for POSIXct)}
+	\item{Ability to read cached cell values. There is a new argument useCachedValues
+    to methods readWorksheet and readNamedRegion. This is especially useful for
+    cells with complex formulas that XLConnect (Apache POI) cannot evaluate and
+    so far would have resulted in NAs being returned. With this new option
+    XLConnect can now read the cached values of cells.}
+	\item{There are new arguments keep and drop to readWorksheet and readNamedRegion
+    which allow filtering of columns before the data is imported to R. This can
+    result in much better performance compared to importing the full data to R
+    and then doing the subsetting in R.}
+  \item{String conversions when reading in data from Excel (readWorksheet, readNamedRegion)
+    now respect the data format of the cells}
+  \item{Support for numeric missing value identifiers (see method setMissingValue)}
+  \item{New Vignette "XLConnect for the Impatient" to get people started quickly}
+  \item{Added a new function getLastColumn to query the last non-empty column in a
+    worksheet}
+  \item{The bounding box detection algorithm for readWorksheet has been adapted to better
+    deal with leading and trailing rows and columns of blank cells. In addition, new
+    arguments autofitRow and autofitCol have been introduced that allow removal of
+    leading and trailing rows and columns even in case boundaries have been specified
+    by the user. This is useful in situations where the data is expected within certain
+    given boundaries but the exact location is not known.}
+  \item{Fixed an issue with writing empty data.frames}
+  \item{Moved to Apache POI 3.9 (see package XLConnectJars)}
+  \item{Ensured vignette compatibility with ggplot2 0.9.3}
 \end{itemize}
 
 A summary of news in \pkg{XLConnect} \Sexpr{getOption("XLConnect.Version")} can be found in the 
@@ -967,7 +988,7 @@ We are very glad that you are using \pkg{XLConnect} and we would be happy to hea
 \includegraphics[width=10mm, height=10mm]{img/BrownBug.png}
 \end{minipage}
 \begin{minipage}[c]{0.9\textwidth}
-Please mail any bug reports, feature requests or technical inquiries to: \\
+Please send any bug reports, feature requests or technical inquiries to: \\
 \href{mailto:xlconnect-bugs@mirai-solutions.com}{xlconnect-bugs@mirai-solutions.com}
 \end{minipage}
 
@@ -1019,7 +1040,7 @@ We will do our best to reply to your enquires as quickly as possible!
 			\\\urlwofont{http://www.inside-r.org/packages/xlconnect}
 	\item	The R-Podcast Episode 6: Importing Data from External Sources:
 			\\\urlwofont{http://www.r-podcast.org/the-r-podcast-episode-6-importing-data-from-external-sources/}
-	\item 	R Base course by Dr. Roberto Dantas de Pinho, referring to \pkg{XLConnect} (Portugese):
+	\item 	R Base course by Dr. Roberto Dantas de Pinho, referring to \pkg{XLConnect} (Portuguese):
 			\\\urlwofont{http://www.slideshare.net/RobertodePinho/curso-bsico-de-r}
 	\item 	YouTube tutorial by bebilda, on importing and exporting data using \pkg{XLConnect} (Spanish): 
 			\\\urlwofont{http://www.youtube.com/watch?v=84ShWUiq5Mg}	
@@ -1032,8 +1053,8 @@ We will do our best to reply to your enquires as quickly as possible!
 			\\\urlwofont{http://www.dummies.com/how-to/content/how-to-read-data-from-excel-into-r.html} 		
 	\item 	"R for Dummies", book by Joris Meys and Andrie de Vries, page 211:
 			\\\urlwofont{http://tinyurl.com/c54e35m}
-	\item 	"Grundlagen der Datenanalyse mit R: Eine anwendungsorientierte Einf?hrung", book by Daniel Wollschl?ger:
-			\\\urlwofont{http://books.google.ch/books/about/Grundlagen_der_Datenanalyse_mit_R.html?id=tlmcPQ9YZP4C&redir_esc=y}
+	\item 	"Grundlagen der Datenanalyse mit R: Eine anwendungsorientierte Einfuhrung", book by Daniel Wollschläger:
+			\\\urlwofont{http://books.google.ch/books?id=tlmcPQ9YZP4C&printsec=frontcover&source=gbs_ge_summary_r&cad=0\#v=onepage&q&f=false}
 	
 \end{enumerate}
 

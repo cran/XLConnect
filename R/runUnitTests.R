@@ -47,26 +47,14 @@ runUnitTests <- function() {
 		print(list(WorkingDir = getwd(), PathToUnitTests = path))
 		
 		# Add path to unit tests as option
-		# (to be used by 'rsrc' function below)
+    # (used by rsrc function in unit tests)
 		options(path.unit.tests = path)
-		# Function to be used by unit tests to refer to resources
-		# in unitTests folder
-		rsrc <- function(resource) {
-			file.path(options()$path.unit.tests, resource)
-		}
-		assign("rsrc", rsrc, envir = .GlobalEnv)
-		
-		# Load the namespace to allow testing of private functions
-		if(is.element(pkg, loadedNamespaces())) {
-			attach(loadNamespace(pkg), name = paste("namespace", pkg, sep = ":"), pos = 3)
-		}
-		
-		# Source additional files needed by testing framework
-		source(file.path(path, "checkNoException.R"))
-		source(file.path(path, "normalizeDataframe.R"))
 		
 		# Set up and run test suite
-		orig.opts <- options(encoding = "latin1")
+		Sys.setlocale(category = "LC_NUMERIC", locale = "C")
+    jlocale = J("java.util.Locale")
+    jlocale$setDefault(jlocale$US)
+    orig.opts <- options(encoding = "UTF-8")
 		TestSuite <- defineTestSuite(paste(pkg, "Test Suite"), dirs = path)
 		TestResult <- runTestSuite(TestSuite)
 		options(orig.opts)

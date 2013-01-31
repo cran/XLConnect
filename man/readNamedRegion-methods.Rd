@@ -8,7 +8,7 @@
 Reads named regions from a \code{\linkS4class{workbook}}.
 }
 \usage{
-\S4method{readNamedRegion}{workbook}(object, name, header, rownames, colTypes, forceConversion, dateTimeFormat, check.names)
+\S4method{readNamedRegion}{workbook}(object, name, header, rownames, colTypes, forceConversion, dateTimeFormat, check.names, useCachedValues, keep, drop)
 }
 
 \arguments{
@@ -42,6 +42,30 @@ Reads named regions from a \code{\linkS4class{workbook}}.
   \item{check.names}{\code{logical} specifying if column names of the resulting \code{data.frame}
   should be checked to ensure that they are syntactically valid valid variable names and are not
   duplicated. See the \code{check.names} argument of \code{\link{data.frame}}. Defaults to \code{TRUE}.}
+  \item{useCachedValues}{\code{logical} specifying whether to read cached formula results from the 
+  workbook instead of re-evaluating them. This is particularly helpful in cases for reading data
+  produced by Excel features not supported in XLConnect like references to external workbooks. 
+  Defaults to \code{FALSE}, which means that formulas will be evaluated by XLConnect.}
+  \item{keep}{List of column names or indices to be kept in the output data frame.
+  It is possible to specify either \code{keep} or \code{drop}, but not both at the same time. 
+  Defaults to \code{NULL}. If a vector is passed as argument, it will be wrapped into a list.
+  This list gets replicated to match the length of the other arguments.
+  Example: if \code{name = c("NamedRegion1", "NamedRegion2", "NamedRegion3")} and \code{keep = c(1,2)}, \code{keep} will be
+  internally converted into \code{list(c(1,2))} and then replicated to match the number of named regions, i.e.
+  \code{keep = list(c(1,2), c(1,2), c(1,2))}. The result is that the first two columns of each named region
+  are kept. If \code{keep = list(1,2)} is specified, it will be replicated as \code{list(1,2,1)}, i.e. respectively
+  the first, second and first column of the named regions "NamedRegion1", "NamedRegion2", "NamedRegion3"
+  will be kept.}
+  \item{drop}{List of column names or indices to be dropped in the output data frame.
+  It is possible to specify either \code{keep} or \code{drop}, but not both at the same time.
+  Defaults to \code{NULL}. If a vector is passed as argument, it will be wrapped into a list.
+  This list gets replicated to match the length of the other arguments.
+  Example: if \code{name = c("NamedRegion1", "NamedRegion2", "NamedRegion3")} and \code{drop = c(1,2)}, \code{drop} will be
+  internally converted into \code{list(c(1,2))} and then replicated to match the number of named regions, i.e.
+  \code{drop = list(c(1,2), c(1,2), c(1,2))}. The result is that the first two columns of each named region
+  are dropped. If \code{drop = list(1,2)} is specified, it will be replicated as \code{list(1,2,1)}, i.e. respectively
+  the first, second and first column of the named regions "NamedRegion1", "NamedRegion2", "NamedRegion3"
+  will be dropped.}
 }
 
 \details{
@@ -60,6 +84,8 @@ How to create named regions/ranges?\cr
 }
 \author{
 Martin Studer\cr
+Thomas Themel\cr
+Nicola Lambiase\cr
 Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
 }
 \note{
@@ -122,6 +148,16 @@ df <- readNamedRegion(wb, name = "conversion", header = TRUE,
                                    XLC$DATA_TYPE.BOOLEAN),
                       forceConversion = TRUE,
                       dateTimeFormat = "\%Y-\%m-\%d \%H:\%M:\%S")
+                      
+## Example 3:
+# mtcars xlsx file from demoFiles subfolder of package XLConnect
+demoExcelFile <- system.file("demoFiles/mtcars.xlsx", package = "XLConnect")
+
+# Load workbook
+wb <- loadWorkbook(demoExcelFile)
+
+# Read the columns 1, 3 and 5 of the named region 'mtcars' (with default header = TRUE)
+data <- readNamedRegion(wb, name = "mtcars", keep=c(1,3,5))
 }
 \keyword{methods}
 \keyword{IO}

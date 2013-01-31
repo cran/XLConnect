@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2012 Mirai Solutions GmbH
+# Copyright (C) 2010-2013 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -22,21 +22,27 @@
 #
 # Reading data from Excel worksheets
 # 
-# Author: Martin Studer, Mirai Solutions GmbH
+# Authors:  Martin Studer, Mirai Solutions GmbH
+#           Thomas Themel, Mirai Solutions GmbH
+#           Nicola Lambiase, Mirai Solutions GmbH
 #
 #############################################################################
 
 setGeneric("readWorksheet",
-	function(object, sheet, startRow = 0, startCol = 0, endRow = 0, endCol = 0, region = NULL,
-			header = TRUE, rownames = NULL, colTypes = character(0), forceConversion = FALSE, 
-			dateTimeFormat = getOption("XLConnect.dateTimeFormat"), check.names = TRUE) 
-		standardGeneric("readWorksheet"))
+	function(object, sheet, startRow = 0, startCol = 0, endRow = 0, endCol = 0,
+           autofitRow = TRUE, autofitCol = TRUE, region = NULL,
+           header = TRUE, rownames = NULL, colTypes = character(0), forceConversion = FALSE, 
+           dateTimeFormat = getOption("XLConnect.dateTimeFormat"), check.names = TRUE, useCachedValues = FALSE, keep = NULL, drop = NULL) 
+    
+    standardGeneric("readWorksheet"))
 
 setMethod("readWorksheet", 
 		signature(object = "workbook", sheet = "numeric"), 
-		function(object, sheet, startRow = 0, startCol = 0, endRow = 0, endCol = 0, region = NULL,
-				 header = TRUE, rownames = NULL, colTypes = character(0), forceConversion = FALSE, 
-				 dateTimeFormat = getOption("XLConnect.dateTimeFormat"), check.names = TRUE) {
+		function(object, sheet, startRow = 0, startCol = 0, endRow = 0, endCol = 0, 
+             autofitRow = TRUE, autofitCol = TRUE, region = NULL, header = TRUE, 
+             rownames = NULL, colTypes = character(0), forceConversion = FALSE, 
+             dateTimeFormat = getOption("XLConnect.dateTimeFormat"), check.names = TRUE, 
+             useCachedValues = FALSE, keep = NULL, drop = NULL) {
 			 
 			if(!is.null(region)) {
 				# Convert region to indices
@@ -48,9 +54,22 @@ setMethod("readWorksheet",
 			}
 			
 			# returns a list of RDataFrameWrapper Java object references)
+
+
+			boundingBoxDim = getBoundingBox(object, sheet, startRow = startRow, startCol = startCol, endRow = endRow, endCol = endCol,
+		                                  autofitRow = autofitRow, autofitCol = autofitCol)
+			startRow = boundingBoxDim[1, ]
+		  	startCol = boundingBoxDim[2, ]
+		 	endRow = boundingBoxDim[3, ]
+		  	endCol = boundingBoxDim[4, ]
+		  	numcols = ifelse(endCol == 0, 0, endCol - startCol + 1)
+			
+			subset <- getColSubset(object, sheet, startRow, endRow, startCol, endCol, header, numcols, keep, drop)
 			dataFrame <- xlcCall(object, "readWorksheet", as.integer(sheet - 1), as.integer(startRow - 1), 
-				as.integer(startCol - 1), as.integer(endRow - 1), as.integer(endCol - 1), header, 
-				.jarray(classToXlcType(colTypes)), forceConversion, dateTimeFormat, SIMPLIFY = FALSE)
+					as.integer(startCol - 1), as.integer(endRow - 1), as.integer(endCol - 1), header, 
+					.jarray(classToXlcType(colTypes)), forceConversion, dateTimeFormat, useCachedValues, subset,
+        			autofitRow, autofitCol, SIMPLIFY = FALSE)
+	
 			# get data.frames from Java
 			dataFrame = lapply(dataFrame, dataframeFromJava, check.names = check.names)
 			# extract rownames
@@ -64,9 +83,11 @@ setMethod("readWorksheet",
 
 setMethod("readWorksheet", 
 		signature(object = "workbook", sheet = "character"), 
-		function(object, sheet, startRow = 0, startCol = 0, endRow = 0, endCol = 0, region = NULL,
-				 header = TRUE, rownames = NULL, colTypes = character(0), forceConversion = FALSE, 
-				 dateTimeFormat = getOption("XLConnect.dateTimeFormat"), check.names = TRUE) {
+		function(object, sheet, startRow = 0, startCol = 0, endRow = 0, endCol = 0,
+             autofitRow = TRUE, autofitCol = TRUE, region = NULL, header = TRUE, 
+             rownames = NULL, colTypes = character(0), forceConversion = FALSE, 
+             dateTimeFormat = getOption("XLConnect.dateTimeFormat"), check.names = TRUE, 
+             useCachedValues = TRUE, keep = NULL, drop = NULL) {
 			
 			# Remember sheet names
 			sheetNames = sheet

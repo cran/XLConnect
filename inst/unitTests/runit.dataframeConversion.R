@@ -31,7 +31,7 @@
 test.dataframeConversion <- function() {
 	
 	testDataFrame <- function(df) {
-		res <- dataframeFromJava(dataframeToJava(df), check.names = TRUE)
+		res <- XLConnect:::dataframeFromJava(XLConnect:::dataframeToJava(df), check.names = TRUE)
 		checkEquals(normalizeDataframe(df), res, check.attributes = FALSE, check.names = TRUE)
 	}
 	
@@ -68,8 +68,7 @@ test.dataframeConversion <- function() {
 	cdf <- data.frame(
 			"Column.A" = c(1, 2, 3, NA, 5, 6, 7, 8, NA, 10),
 			"Column.B" = c(-4, -3, NA, -1, 0, NA, NA, 3, 4, 5),
-			"Column.C" = c("Anna", "äöü", 
-					NA, "", NA, "$!?&%", "(£2@§~°'^*#|)", "{}[]:,;-_<>", "\\sadf\n\nv", "a b c"),
+			"Column.C" = c("Anna", "???", NA, "", NA, "$!?&%", "(?2@?~?'^*#|)", "{}[]:,;-_<>", "\\sadf\n\nv", "a b c"),
 			"Column.D" = c(pi, -pi, NA, sqrt(2), sqrt(0.3), -sqrt(pi), exp(1), log(2), sin(2), -tan(2)),
 			"Column.E" = c(TRUE, TRUE, NA, NA, FALSE, FALSE, TRUE, NA, FALSE, TRUE),
 			"Column.F" = c("High", "Medium", "Low", "Low", "Low", NA, NA, "Medium", "High", "High"),
@@ -87,13 +86,13 @@ test.dataframeConversion <- function() {
 	
 	# Check that when being supplied with an object that is not coercable
 	# into a data.frame, an appropriate exception is thrown
-	checkException(dataframeToJava(search))
+	checkException(XLConnect:::dataframeToJava(search))
 	
 	# Check that exceptions are thrown when calling dataframeFromJava
 	# with inappropriate objects
-	checkException(dataframeFromJava(NULL))
-	checkException(dataframeFromJava(NA))
-	checkException(dataframeFromJava(9))
-	checkException(dataframeFromJava(search))
+	checkException(XLConnect:::dataframeFromJava(NULL))
+	checkException(XLConnect:::dataframeFromJava(NA))
+	checkException(XLConnect:::dataframeFromJava(9))
+	checkException(XLConnect:::dataframeFromJava(search))
 }
 

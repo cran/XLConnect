@@ -35,17 +35,22 @@
 #
 #############################################################################
 
-normalizeDataframe <- function(df) {
+normalizeDataframe <- function(df, replaceInf = FALSE) {
 	att = attr(df, "row.names")
 	res <- lapply(df, 
 		function(col) {
-			if(is(col, "logical") || is(col, "numeric") || is(col, "character"))
-				col
-			else if(is(col, "Date") || is(col, "POSIXt")) {
-				# Get rid of "original" timezone and assume UTC
-				as.POSIXct(
-					format(col, format = options("XLConnect.dateTimeFormat")[[1]]), 
-					tz = "UTC")
+      if(is(col, "numeric")) {
+        if(replaceInf) {
+          col[is.infinite(col)] = NA # there are no infinites in Excel
+          col
+        } else {
+          col
+        }
+			} else if(is(col, "logical") || is(col, "character")) {
+        col
+			} else if(is(col, "Date") || is(col, "POSIXt")) {
+        ms = round(as.numeric(as.POSIXct(col)), 3) # only consider up to milliseconds
+        as.POSIXct(ms, origin = "1970-01-01", tz = "")
 			} else
 				as.character(col)
 		}

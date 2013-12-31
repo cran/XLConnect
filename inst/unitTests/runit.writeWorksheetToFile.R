@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2012 Mirai Solutions GmbH
+# Copyright (C) 2010-2013 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -120,4 +120,22 @@ test.writeWorksheetToFile <- function() {
 	testDataFrame(file.xls, cdf)
 	# (*.xlsx)
 	testDataFrame(file.xlsx, cdf)	
+
+        # test clearSheets
+        testClearSheets <- function(file, df) {
+		df.short <- df[1,]
+
+		# overwrite sheet with shorter version 
+		writeWorksheetToFile(file, data=c(df.short), sheet="cdfRegion")
+		# default behaviour: not cleared
+		checkEquals(nrow(readWorksheetFromFile(file, sheet="cdfRegion")), nrow(df))
+		# overwrite sheet with shorter version 
+		writeWorksheetToFile(file, data=c(df.short), sheet="cdfRegion", clearSheets=TRUE)
+		# should be cleared
+		checkEquals(nrow(readWorksheetFromFile(file, sheet="cdfRegion")), 1)
+	}
+
+	testClearSheets(file.xls, cdf)
+	testClearSheets(file.xlsx, cdf)
+
 }

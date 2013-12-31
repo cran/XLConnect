@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2012 Mirai Solutions GmbH
+# Copyright (C) 2010-2013 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -36,7 +36,7 @@ test.workbook.readNamedRegion <- function() {
 			"NumericColumn" = c(-23.63, NA, NA, 5.8, 3),
 			"StringColumn" = c("Hello", NA, NA, NA, "World"),
 			"BooleanColumn" = c(TRUE, FALSE, FALSE, NA, NA),
-			"DateTimeColumn" = as.POSIXct(c(NA, NA, "2010-09-09 21:03:07", "2010-09-10 21:03:07", "2010-09-11 21:03:07"), tz = "UTC"),
+			"DateTimeColumn" = as.POSIXct(c(NA, NA, "2010-09-09 21:03:07", "2010-09-10 21:03:07", "2010-09-11 21:03:07")),
 			stringsAsFactors = F
 	)
 	
@@ -58,7 +58,7 @@ test.workbook.readNamedRegion <- function() {
 			AAA = c(NA, NA, NA, 780.9, NA),
 			BBB = c("hello", "42.24", "true", NA, "11.01.1984 12:00:00"),
 			CCC = c(TRUE, NA, NA, NA, NA),
-			DDD = as.POSIXct(c("1984-01-11 12:00:00", NA, NA, NA, NA), tz = "UTC"),
+			DDD = as.POSIXct(c("1984-01-11 12:00:00", NA, NA, NA, NA)),
 			stringsAsFactors = FALSE
 	)
 	
@@ -67,7 +67,7 @@ test.workbook.readNamedRegion <- function() {
 			BBB = c("hello", "42.24", "true", NA, "11.01.1984 12:00:00"),
 			CCC = c(TRUE, TRUE, NA, FALSE, FALSE),
 			DDD = as.POSIXct(c("1984-01-11 12:00:00", "2012-02-06 16:15:23", "1984-01-11 12:00:00", 
-					NA, "1900-12-22 16:04:48"), tz = "UTC"),
+					NA, "1900-12-22 16:04:48")),
 			stringsAsFactors = FALSE
 	)
 	
@@ -258,7 +258,7 @@ test.workbook.readNamedRegion <- function() {
 	
 	targetNoForceSubset <- data.frame(
 			BBB = c("hello", "42.24", "true", NA, "11.01.1984 12:00:00"),
-			DDD = as.POSIXct(c("1984-01-11 12:00:00", NA, NA, NA, NA), tz = "UTC"),
+			DDD = as.POSIXct(c("1984-01-11 12:00:00", NA, NA, NA, NA)),
 			stringsAsFactors = FALSE
 	)
 	
@@ -317,6 +317,27 @@ test.workbook.readNamedRegion <- function() {
 			forceConversion = FALSE,
 			dateTimeFormat = "%d.%m.%Y %H:%M:%S", drop=c(1,3))
 	checkEquals(res, targetNoForceSubset)
+  
+	# Check that simplification works as expected (*.xls)
+  res <- readNamedRegion(wb.xls, name = "Simplify1", header = TRUE, simplify = TRUE)
+  checkEquals(res, 1:10)
+  res <- readNamedRegion(wb.xls, name = "Simplify2", header = TRUE, simplify = TRUE)
+  checkEquals(res, 1:4)
+  res <- readNamedRegion(wb.xls, name = "Simplify3", header = TRUE, simplify = TRUE)
+  checkEquals(res, c(TRUE, FALSE, FALSE, TRUE))
+  res <- readNamedRegion(wb.xls, name = "Simplify4", header = TRUE, simplify = TRUE)
+  checkEquals(res, c("one", "two", "three", "four", "five"))
+  
+	# Check that simplification works as expected (*.xlsx)
+	res <- readNamedRegion(wb.xlsx, name = "Simplify1", header = TRUE, simplify = TRUE)
+	checkEquals(res, 1:10)
+	res <- readNamedRegion(wb.xlsx, name = "Simplify2", header = TRUE, simplify = TRUE)
+	checkEquals(res, 1:4)
+	res <- readNamedRegion(wb.xlsx, name = "Simplify3", header = TRUE, simplify = TRUE)
+	checkEquals(res, c(TRUE, FALSE, FALSE, TRUE))
+	res <- readNamedRegion(wb.xlsx, name = "Simplify4", header = TRUE, simplify = TRUE)
+	checkEquals(res, c("one", "two", "three", "four", "five"))
+  
 
 	# Cached value tests: Create workbook
 	wb.xls <- loadWorkbook(rsrc("resources/testCachedValues.xls"), create = FALSE)

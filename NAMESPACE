@@ -1,5 +1,7 @@
 # XLConnect requires rJava & XLConnectJars
+import(methods)
 import(rJava)
+importFrom(utils, packageDescription)
 
 # XLConnect exports the following S4 classes & methods
 exportClasses(workbook, cellstyle)
@@ -23,6 +25,7 @@ exportMethods(
 	getActiveSheetName,
 	getBoundingBox,
 	getCellStyle,
+  getCellStyleForType,
 	getCellFormula,
 	getDefinedNames,
 	getForceFormulaRecalculation,
@@ -30,8 +33,11 @@ exportMethods(
 	getLastColumn,
 	getReferenceFormula,
 	getReferenceCoordinates,
+  getReferenceCoordinatesForName,
+  getReferenceCoordinatesForTable,
 	getSheetPos,
 	getSheets,
+	getTables,
 	hideSheet,
 	isSheetHidden,
 	isSheetVeryHidden,
@@ -40,6 +46,7 @@ exportMethods(
 	onErrorCell,
 	print,
 	readNamedRegion,
+  readTable,
 	readWorksheet,
 	removeName,
 	removePane,
@@ -50,6 +57,7 @@ exportMethods(
 	setAutoFilter,
 	setBorder,
 	setCellStyle,
+  setCellStyleForType,
 	setCellFormula,
 	setColumnWidth,
 	setDataFormat,
@@ -57,7 +65,7 @@ exportMethods(
 	setFillBackgroundColor,
 	setFillForegroundColor,
 	setFillPattern,
-    setForceFormulaRecalculation,
+	setForceFormulaRecalculation,
 	setMissingValue,
 	setRowHeight,
 	setSheetColor,
@@ -78,7 +86,7 @@ exportMethods(
 export(
 	aref,
 	aref2idx,
-  checkNoException,
+	checkNoException,
 	col2idx,
 	cref2idx,
 	extractSheetName,
@@ -87,10 +95,10 @@ export(
 	idx2cref,
 	mirai,
 	loadWorkbook,
-  normalizeDataframe,
+	normalizeDataframe,
 	readNamedRegionFromFile,
 	readWorksheetFromFile,
-  rsrc,
+	rsrc,
 	runUnitTests,
 	writeNamedRegionToFile,
 	writeWorksheetToFile,
@@ -106,5 +114,3 @@ export(
 S3method(print, mirai)
 S3method(with, workbook)
 
-# keeps rcmd check from complaining 
-importFrom("utils", "packageDescription")

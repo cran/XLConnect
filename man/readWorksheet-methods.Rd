@@ -9,8 +9,12 @@
 Reads data from worksheets of a \code{\linkS4class{workbook}}.
 }
 \usage{
-\S4method{readWorksheet}{workbook,numeric}(object,sheet,startRow,startCol,endRow,endCol,autofitRow,autofitCol,region,header,rownames,colTypes,forceConversion,dateTimeFormat,check.names,useCachedValues,keep,drop)
-\S4method{readWorksheet}{workbook,character}(object,sheet,startRow,startCol,endRow,endCol,autofitRow,autofitCol,region,header,rownames,colTypes,forceConversion,dateTimeFormat,check.names,useCachedValues,keep,drop)
+\S4method{readWorksheet}{workbook,numeric}(object,sheet,startRow,startCol,endRow,endCol,autofitRow,autofitCol,
+region,header,rownames,colTypes,forceConversion,dateTimeFormat,check.names,
+useCachedValues,keep,drop, simplify, readStrategy)
+\S4method{readWorksheet}{workbook,character}(object,sheet,startRow,startCol,endRow,endCol,autofitRow,autofitCol,
+region,header,rownames,colTypes,forceConversion,dateTimeFormat,check.names,
+useCachedValues,keep,drop, simplify, readStrategy)
 }
 
 \arguments{
@@ -30,7 +34,8 @@ Reads data from worksheets of a \code{\linkS4class{workbook}}.
     headers. The default is \code{TRUE}.}
   \item{rownames}{Index (\code{numeric}) or name (\code{character}) of column that
   should be used as row names. The corresponding column will be removed from the data
-  set. Defaults to \code{NULL} which means that no row names are applied.}
+  set. Defaults to \code{NULL} which means that no row names are applied. Row names must be either
+  \code{integer} or \code{character}. Non-numeric columns will be coerced to \code{character}.}
   \item{colTypes}{Column types to use when reading in the data. Specified as a \code{character}
   vector of the corresponding type names (see \code{\link{XLC}}; \code{XLC$DATA_TYPE.<?>}). You
   may also use R class names such as \code{numeric}, \code{character}, \code{logical} and \code{POSIXt}.
@@ -78,6 +83,17 @@ Reads data from worksheets of a \code{\linkS4class{workbook}}.
   are dropped. If \code{drop = list(1,2)} is specified, it will be replicated as \code{list(1,2,1)}, i.e. respectively
   the first, second and first column of the sheets "Sheet1", "Sheet2", "Sheet3"
   will be dropped.}
+  \item{simplify}{\code{logical} specifying if the result should be simplified, e.g. in case the \code{data.frame}
+  would only have one row or one column (and data types match). Simplifying here is identical to calling \code{unlist}
+  on the otherwise resulting \code{data.frame} (using \code{use.names = FALSE}). The default is \code{FALSE}.}
+  \item{readStrategy}{\code{character} specifying the reading strategy to use. Currently supported strategies are:
+  \itemize{
+  \item \code{"default"} (default): Can handle all supported data types incl. date/time values and can deal 
+  directly with missing value identifiers (see \code{\link[=setMissingValue-methods]{setMissingValue}})
+  \item \code{"fast"}: Increased read performance. Date/time values are read as numeric (number of days since 1900-01-01; 
+  fractional days represent hours, minutes, and seconds) and only blank cells are recognized as missing (missing value 
+  identifiers as set in \code{\link[=setMissingValue-methods]{setMissingValue}} are ignored)
+  }}
 }
 
 \details{
@@ -137,6 +153,7 @@ and seconds.
   \code{\link[=readNamedRegion-methods]{readNamedRegion}},
   \code{\link[=writeNamedRegion-methods]{writeNamedRegion}},\cr
   \code{\link{readWorksheetFromFile}},
+  \code{\link[=readTable-methods]{readTable}},
   \code{\link[=onErrorCell-methods]{onErrorCell}}
 }
 \examples{

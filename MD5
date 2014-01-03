@@ -1,6 +1,6 @@
-f933059b7e847ca85be419a1948faa4c *DESCRIPTION
+73f92aee349a2e395da48ffe7ca1aa86 *DESCRIPTION
 d241bb0eacaeb685c0f25404887485f0 *NAMESPACE
-eaf765fe7e5b950e71d1c9597632ab9c *NEWS
+00d945775ee0a377d2de0f8ba740be29 *NEWS
 726ad43937d9d190ca4763bb4ae81b58 *R/XLConnectSettings.R
 290512ec9eda7de98121990934f84fe6 *R/aref.R
 2b75a2802e4b9e15fc2fb48d10cfe8d4 *R/aref2idx.R
@@ -17,7 +17,7 @@ f4207ecf6879a6ea1aa0d7c2d09c5155 *R/classToXlcType.R
 6c0ebac8c919e92a05c7808b908cbab7 *R/col2idx.R
 eb6d55facba8309056a73b217fc20a5d *R/constants.R
 9f95797d8bd6e9bb241c597a723b7437 *R/cref2idx.R
-997c0d33306a22d26eb4e28a02956e34 *R/dataframeFromJava.R
+2ae6a45be5df211608f5d7f6fb9596b8 *R/dataframeFromJava.R
 9024b5ef614ad4b63f34caa6015733ce *R/dataframeToJava.R
 926afcba8836468af955462f891e3410 *R/extractRownames.R
 a1d046917bc57d08601ec8fae6bcbb65 *R/extractSheetName.R
@@ -29,7 +29,7 @@ f8486d9af03d7b351b91a7c2e808b459 *R/includeRownames.R
 10129f3020e5e9ae02cb9d774fd5a3dd *R/jTryCatch.R
 d910c1e09f57f7571a7810db646a6be0 *R/loadWorkbook.R
 894637668fc187cd2651978b5c9fd923 *R/mirai.R
-facabe76e56b414c06ddbd04fd1306fc *R/normalizeDataframe.R
+b51c7d74c42c2a7340daf217d9df078e *R/normalizeDataframe.R
 9a7df620db41316becaeb2fb897d1728 *R/onAttach.R
 fe3657ea39cb3b74c027c09eae787204 *R/onLoad.R
 f5df3ddc79acb2c6e9420abc755fab7f *R/readNamedRegionFromFile.R
@@ -117,7 +117,7 @@ bf2792347e85265ff927115b62fff79b *R/workbook.summary.R
 2a90abe6e08d50627eabb007c76fff43 *R/xlcMemoryReport.R
 230c62d585e2cac4bbdd6b8279c25032 *R/xlcRestore.R
 ac71afd95e2ba0f91cb22b51223e9849 *README.md
-a66fe3f079594c542bde24c8cc6d5bcb *build/vignette.rds
+bb42fdb0ea7066307c47a184ab830c0f *build/vignette.rds
 20c4be0a21ab4ffdcabc1d8d2543e425 *demo/00Index
 86f1770bb156fb8022db301dc8c5510b *demo/addImage.R
 0be344c9210c75c9b6992d494af1c152 *demo/cellsize.R
@@ -145,10 +145,10 @@ ebecf379154d7da437b4d01441573f1f *inst/demoFiles/errorCell.xlsx
 0036c8cab21f9f3037239424707d383d *inst/demoFiles/template2.xlsx
 30fe82125f72eee94568e3316c86c9ef *inst/doc/XLConnect.R
 5a2f180f93d10d3b6d01f15a73dd1963 *inst/doc/XLConnect.Rnw
-5118c866b40723705e3181ad4498404b *inst/doc/XLConnect.pdf
+c837550269adfdcfb174e08ceece5e39 *inst/doc/XLConnect.pdf
 9ce0b261e6f41c7e57e5b0fde6cb21b6 *inst/doc/XLConnectImpatient.R
 1fab5d913ebcdcd37c699c0cb88bb214 *inst/doc/XLConnectImpatient.Rnw
-cfe79380054893631f09a1dc88d05257 *inst/doc/XLConnectImpatient.pdf
+4bc5563be3f4f95c6b8a6e15254fa4bd *inst/doc/XLConnectImpatient.pdf
 aa84fe6572855bc29186f8f392ce3dc4 *inst/java/XLConnect-0.2-6.jar
 4686be8303e04b41a0b5c37710b9a09d *inst/java/commons-codec-1.5.jar
 4d8f51d3fe3900efc6e395be48030d6d *inst/java/dom4j-1.6.1.jar
@@ -187,7 +187,7 @@ d2399eec2281802a9d7517b2eb733431 *inst/unitTests/resources/testWorkbookForceReca
 ff8a8973ee5dc25f582c881486481b15 *inst/unitTests/resources/testWorkbookGetLastRow.xlsx
 109e0839f3931ee57783509be73cf030 *inst/unitTests/resources/testWorkbookHiddenSheets.xls
 ec8dceb2d16948a0ce861510b327b014 *inst/unitTests/resources/testWorkbookHiddenSheets.xlsx
-c7652a9c8ede7c562033d64750b54ecf *inst/unitTests/resources/testWorkbookMissingValue.xls
+7e866efcd662b775408e883d8dd2c1c0 *inst/unitTests/resources/testWorkbookMissingValue.xls
 3012ab920fed264c7335c354361c58e8 *inst/unitTests/resources/testWorkbookMissingValue.xlsx
 7edf3d2b17f1e8b22c7b14ae992aa6e6 *inst/unitTests/resources/testWorkbookReadNamedRegion.xls
 bc8d73ff2081b0adcd65ac08ef62c0eb *inst/unitTests/resources/testWorkbookReadNamedRegion.xlsx
@@ -261,7 +261,7 @@ f862e5c18b257a064adcc9135c65ce3c *inst/unitTests/runit.workbook.writeWorksheet.R
 7b84fb8b116aad919aa862c9297344e5 *inst/unitTests/runit.writeWorksheetToFile.R
 339558f365978f28822affabf4e65c7f *man/XLC.Rd
 2041de68402aaf0233fd46ade9e641c3 *man/XLConnect-deprecated.Rd
-6d0477e45d6610fdfac9658e7fa2081a *man/XLConnect-package.Rd
+e7b0bb9645893fd2e7cc118f61244662 *man/XLConnect-package.Rd
 da1a6eab48792975e89b059af1f9ca21 *man/XLConnectSettings.Rd
 ef7332d3d4010b18616fc8c953b87fe8 *man/addImage-methods.Rd
 f33a910f99451c4f2eef5f441f45fbdb *man/appendNamedRegion-methods.Rd
@@ -367,7 +367,7 @@ af24f989de00eee55be28348712eb45a *man/xlcDump.Rd
 7b531e4e8759cddedcd1dec97050c966 *man/xlcFreeMemory.Rd
 155d6af15bc80ea26b94f54c66720f89 *man/xlcMemoryReport.Rd
 d1cdc269b2224906ce241f2532867d47 *man/xlcRestore.Rd
-18b6babca0f840fa1dc60fbcd8f74f4f *tests/run_tests.R
+c061158e563724455ac84211d6c8620a *tests/run_tests.R
 5a2f180f93d10d3b6d01f15a73dd1963 *vignettes/XLConnect.Rnw
 1fab5d913ebcdcd37c699c0cb88bb214 *vignettes/XLConnectImpatient.Rnw
 701e14a034ed43a2b222131803f30e7c *vignettes/img/AdvancedExample1a.png

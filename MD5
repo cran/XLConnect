@@ -1,6 +1,6 @@
-83febe484d312362ed14f5c2df1545d5 *DESCRIPTION
+281d0e4d6dc920f4439e671572297751 *DESCRIPTION
 591f089656b89673ec57efaffaf482d5 *NAMESPACE
-65bdbaeab4a5638d7ca6e4f61efb9940 *NEWS
+f85db274446e4047a33364e15a9e5ea8 *NEWS
 a9711872926a5dc959aa3581f65b3206 *R/XLConnectSettings.R
 290512ec9eda7de98121990934f84fe6 *R/aref.R
 2b75a2802e4b9e15fc2fb48d10cfe8d4 *R/aref2idx.R
@@ -116,7 +116,7 @@ bf2792347e85265ff927115b62fff79b *R/workbook.summary.R
 1c246cc53f46305887889de6822eb9e0 *R/xlcFreeMemory.R
 2a90abe6e08d50627eabb007c76fff43 *R/xlcMemoryReport.R
 230c62d585e2cac4bbdd6b8279c25032 *R/xlcRestore.R
-dd6c8f006b0511c26da40831bdccb38a *README.md
+5d2addcdf5f3ea1a64ffe13a270846dd *README.md
 27427d6a0b4fa6d183c47e9f9363775c *build/vignette.rds
 7cd68b9480250860424145210a575045 *demo/00Index
 86f1770bb156fb8022db301dc8c5510b *demo/addImage.R
@@ -133,7 +133,7 @@ a664adc8a1afc742404e6ba3db615278 *demo/withWorkbook.R
 bb75d1eff2f443715eefa65540a8995a *demo/writeLargeData.R
 66554117612a0be1cf689551eeee14f8 *demo/writeNamedRegion.R
 40f45b7085bcbe387d32851dd7a508c2 *demo/writeWorksheet.R
-d2dd21bece3dd9ef1c7e517b0a6f5de1 *inst/COPYRIGHTS
+30f7c96346775a296e12257aca40816b *inst/COPYRIGHTS
 69328659b77a4b45845264265618172c *inst/XLConnect.R
 d999cd2e84875e070344f36618533262 *inst/demoFiles/SwitzerlandFlag.jpg
 c6bd73b8c52a29c113619a8c0cae2044 *inst/demoFiles/conversion.xlsx
@@ -145,11 +145,11 @@ ebecf379154d7da437b4d01441573f1f *inst/demoFiles/errorCell.xlsx
 1aae3a0a2a1501319d52575ab484f978 *inst/demoFiles/template.xlsx
 0036c8cab21f9f3037239424707d383d *inst/demoFiles/template2.xlsx
 69328659b77a4b45845264265618172c *inst/doc/XLConnect.R
-aa01741ce0ae2e87ca0cf2120a93a683 *inst/doc/XLConnect.Rnw
-33d312001b967c6733e0f733e06a5bff *inst/doc/XLConnect.pdf
+62853bcbeaa0f8bdbcf88b0e6c3a2de7 *inst/doc/XLConnect.Rnw
+3b3efe09628123e31bf5dd659d301990 *inst/doc/XLConnect.pdf
 196a255b461255d4dff00e60fa7745f0 *inst/doc/XLConnectImpatient.R
 a5b1af8181954f0165dee81c8586d412 *inst/doc/XLConnectImpatient.Rnw
-78a2809086a2d601d0a484b9ed34dd50 *inst/doc/XLConnectImpatient.pdf
+bc7e1a9c4e5ec1c5d06795cd29c55f76 *inst/doc/XLConnectImpatient.pdf
 8bcf29d97dac099636ca874ffdaa43dd *inst/java/XLConnect-0.2-8.jar
 75615356605c8128013da9e3ac62a249 *inst/java/commons-codec-1.9.jar
 4d8f51d3fe3900efc6e395be48030d6d *inst/java/dom4j-1.6.1.jar
@@ -257,10 +257,10 @@ f862e5c18b257a064adcc9135c65ce3c *inst/unitTests/runit.workbook.writeWorksheet.R
 0015ef54509eaa0b7855ef13784cf6c2 *inst/unitTests/runit.writeAndReadWorksheet.R
 0e6b65c774975b401d94bf1ba779bd89 *inst/unitTests/runit.writeNamedRegionToFile.R
 7b84fb8b116aad919aa862c9297344e5 *inst/unitTests/runit.writeWorksheetToFile.R
-783d9abe98ed197f99375f22caabec01 *java/README
+c7c7fa32eac66c0f33d612a9164f6096 *java/README
 339558f365978f28822affabf4e65c7f *man/XLC.Rd
 5f87492391aa692d31cc5c7155496d89 *man/XLConnect-deprecated.Rd
-8e716ab6e57945e35a4bf9df3255dd14 *man/XLConnect-package.Rd
+1724c6623a6a8729d98c07c4f97fb6f3 *man/XLConnect-package.Rd
 da1a6eab48792975e89b059af1f9ca21 *man/XLConnectSettings.Rd
 ef7332d3d4010b18616fc8c953b87fe8 *man/addImage-methods.Rd
 f33a910f99451c4f2eef5f441f45fbdb *man/appendNamedRegion-methods.Rd
@@ -367,7 +367,7 @@ af24f989de00eee55be28348712eb45a *man/xlcDump.Rd
 155d6af15bc80ea26b94f54c66720f89 *man/xlcMemoryReport.Rd
 d1cdc269b2224906ce241f2532867d47 *man/xlcRestore.Rd
 c061158e563724455ac84211d6c8620a *tests/run_tests.R
-aa01741ce0ae2e87ca0cf2120a93a683 *vignettes/XLConnect.Rnw
+62853bcbeaa0f8bdbcf88b0e6c3a2de7 *vignettes/XLConnect.Rnw
 a5b1af8181954f0165dee81c8586d412 *vignettes/XLConnectImpatient.Rnw
 701e14a034ed43a2b222131803f30e7c *vignettes/img/AdvancedExample1a.png
 86e68d9de76bc93c5f9128f702316014 *vignettes/img/AdvancedExample1b.png

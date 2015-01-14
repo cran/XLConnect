@@ -6,14 +6,14 @@
 Excel Connector for R
 }
 \description{
-Manipulate Excel files from R
+Provides comprehensive functionality to read, write and format Excel data.
 }
 \details{
 \tabular{ll}{
 Package: \tab XLConnect\cr
 Type: \tab Package\cr
-Version: \tab 0.2-9\cr
-Date: \tab 2014-08-13\cr
+Version: \tab 0.2-10\cr
+Date: \tab 2015-01-14\cr
 URL: \tab \url{http://www.mirai-solutions.com}\cr
 \tab \url{http://miraisolutions.wordpress.com}\cr
 SystemRequirements: \tab java (>= 1.6)\cr

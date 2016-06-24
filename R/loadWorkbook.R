@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2013 Mirai Solutions GmbH
+# Copyright (C) 2010-2016 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -28,9 +28,9 @@
 #
 #############################################################################
 
-loadWorkbook <- function(filename, create = FALSE) {
+loadWorkbook <- function(filename, create = FALSE, password = NULL) {
   # Run Java AWT in headless mode
   .jcall("java.lang.System", "S", "setProperty", "java.awt.headless", "true")
   
-	jTryCatch(new("workbook", filename = path.expand(filename), create = create))
+	jTryCatch(new("workbook", filename = path.expand(filename), password = password, create = create))
 }

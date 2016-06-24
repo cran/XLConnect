@@ -1,6 +1,23 @@
 XLConnect News
 --------------
 
+0.2-12 2016-06-23
+  * Moved to Apache POI 3.15-beta1
+  * Upgraded to Apache Commons Codec 1.10
+  * Upgraded XLConnectJars dependency to version 0.2-12
+  * Fixed an issue with formula cell evaluation
+  * New feature: ability to read password protected files
+  * Add additional imports to NAMESPACE as future versions of R will
+    only have the base package attached when performing 'R CMD check'
+  * Fixed github issue #52: useCachedValues=TRUE shows formulas instead of values
+  * Fixed github issue #49: if region has only 2 columns then can't set first
+    column as rownames (thanks to EldarAgalarov and Deleetdk)
+  * Fixed github issue #53: 1904 date system in mixed columns (thanks to waternova)
+  * Added ability to skip end rows and columns on import from worksheet
+    (#29; thanks to psychemedia for the feature request)
+  * Fixed an issue with writeNamedRegion where named regions for 0-row
+    data.frames have been defined with an extended empty row
+
 0.2-11 2015-03-01
   * Moved to Apache POI 3.12-beta1
   * Fixed issue where formula cells would not be evaluated

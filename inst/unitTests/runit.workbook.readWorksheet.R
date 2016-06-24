@@ -60,6 +60,9 @@ test.workbook.readWorksheet <- function() {
 	checkEquals(res.index, checkDf)
 	res.name <- readWorksheet(wb.xls, "Test2", startRow = 17, startCol = 6, endRow = 22, endCol = 9, header = TRUE)
 	checkEquals(res.name, checkDf)
+  # Test using a negative endRow/endCol
+  res.name <- readWorksheet(wb.xls, "Test2", startRow = 17, startCol = 6, endRow = -2, endCol = -1, header = TRUE)
+  checkEquals(res.name, checkDf[-nrow(checkDf) + 0:1, -ncol(checkDf)])
 	
 	# Read worksheet by specifying a range
 	# Check that the read data region equals the defined data.frame (*.xlsx)
@@ -67,6 +70,9 @@ test.workbook.readWorksheet <- function() {
 	checkEquals(res.index, checkDf)
 	res.name <- readWorksheet(wb.xlsx, "Test2", startRow = 17, startCol = 6, endRow = 22, endCol = 9, header = TRUE)
 	checkEquals(res.name, checkDf)
+	# Test using a negative endRow/endCol
+	res.name <- readWorksheet(wb.xlsx, "Test2", startRow = 17, startCol = 6, endRow = -2, endCol = -1, header = TRUE)
+	checkEquals(res.name, checkDf[-nrow(checkDf) + 0:1, -ncol(checkDf)])
 	
 	# Read worksheet by specifying a range via the region argument
 	# Check that the read data region equals the defined data.frame (*.xls)
@@ -134,6 +140,11 @@ test.workbook.readWorksheet <- function() {
 	checkEquals(res, checkDf1)
 	res <- readWorksheet(wb.xls, "Test5")
 	checkEquals(res, checkDf2)
+  # Test with negative endRow/endCol
+  res <- readWorksheet(wb.xls, "Test4", endRow = -4, endCol = -2)
+  checkEquals(res, checkDf1[-nrow(checkDf1) + 0:3, -ncol(checkDf) + 0:1])
+  res <- readWorksheet(wb.xls, "Test5", endRow = -3, endCol = -1)
+  checkEquals(res, checkDf2[-nrow(checkDf2) + 0:2, -ncol(checkDf)])
 
 	# Check that the data bounding box is correctly inferred even if there are blank cells
 	# in the last row (*.xlsx)
@@ -141,6 +152,10 @@ test.workbook.readWorksheet <- function() {
 	checkEquals(res, checkDf1)
 	res <- readWorksheet(wb.xlsx, "Test5")
 	checkEquals(res, checkDf2)
+	res <- readWorksheet(wb.xlsx, "Test4", endRow = -4, endCol = -2)
+	checkEquals(res, checkDf1[-nrow(checkDf1) + 0:3, -ncol(checkDf) + 0:1])
+	res <- readWorksheet(wb.xlsx, "Test5", endRow = -3, endCol = -1)
+	checkEquals(res, checkDf2[-nrow(checkDf2) + 0:2, -ncol(checkDf)])
 	
 	targetNoForce <- data.frame(
 			AAA = c(NA, NA, NA, 780.9, NA),
@@ -604,5 +619,37 @@ test.workbook.readWorksheet <- function() {
 	res <- readWorksheet(wb.xlsx, "BodyRemote", useCachedValues = TRUE)
 	checkEquals(ref.xls.uncached, res)
 	res <- readWorksheet(wb.xlsx, "BothRemote", useCachedValues = TRUE)
-	checkEquals(ref.xls.uncached, res)	
+	checkEquals(ref.xls.uncached, res)
+  
+  # Check that reading cached cell values in conjunction with converting cell values to string
+  # does not lead to cell formulas being returned (see github issue #52)
+  res <- readWorksheetFromFile(rsrc("resources/testBug52.xlsx"), sheet = 1, useCachedValues = TRUE)
+  expected <- data.frame(
+    Var1 = c(2, 4, 6),
+    Var2 = c("2", "nope", "6"),
+    Var3 = c(NA, 4, 6),
+    Var4 = c(2, 4, 6),
+    stringsAsFactors = FALSE
+  )
+  checkEquals(expected, res)
+  
+  # Check that dimensionality is not dropped when reading in a worksheet with rownames = x 
+  # (see github issue #49)
+  expected = data.frame(B = 1:5, row.names = letters[1:5])
+	res <- readWorksheetFromFile(rsrc("resources/testBug49.xlsx"), sheet = 1, rownames = 1)
+  checkEquals(expected, res)
+  
+  # Check that dates are correctly converted to string in 1904-windowing based Excel files
+  # (see github issue #53)
+  expected = data.frame(
+    A = c("2003-04-06", "2014-10-30", "abc"),
+    stringsAsFactors = FALSE
+  )
+  res <- readWorksheetFromFile(rsrc("resources/testBug53.xlsx"), sheet = 1, dateTimeFormat = "%Y-%m-%d")
+  checkEquals(expected, res)
+  
+  # Check that numbers are correctly converted to string 1904-windowing based Excel files
+	expected = data.frame(A = as.POSIXct(c("2015-12-01", "2015-11-17", "1984-01-11")))
+	res <- readWorksheetFromFile(rsrc("resources/testBug53.xlsx"), sheet = 2, colTypes = "POSIXt", forceConversion = TRUE)
+  checkEquals(expected, res)
 }

@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2013 Mirai Solutions GmbH
+# Copyright (C) 2010-2016 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -33,8 +33,7 @@
 dataframeToJava <- function(df) {
   jTryCatch({
   	# Force data.frame
-  	if(!is.data.frame(df))
-  		df = as.data.frame(df)
+  	df = as.data.frame(df)
   	
   	dFrame = new(J("com.miraisolutions.xlconnect.integration.r.RDataFrameWrapper"))
   	cnames = colnames(df)

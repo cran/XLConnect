@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2013 Mirai Solutions GmbH
+# Copyright (C) 2010-2016 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -31,9 +31,15 @@ setClass("workbook", representation(filename = "character", jobj = "jobjRef"))
 
 setMethod("initialize", 
 		"workbook", 
-		function(.Object, filename, create) {
+		function(.Object, filename, password, create) {
 			.Object@filename <- filename
-			.Object@jobj <- jTryCatch(new(J("com.miraisolutions.xlconnect.integration.r.RWorkbookWrapper"), filename, create))
+			.Object@jobj <- 
+        if(is.null(password)) {
+          jTryCatch(new(J("com.miraisolutions.xlconnect.integration.r.RWorkbookWrapper"), filename, create))
+        } else {
+          jTryCatch(new(J("com.miraisolutions.xlconnect.integration.r.RWorkbookWrapper"), filename, password, create))
+        }
+        
 			if(is.jnull(.Object@jobj))
 				stop("Could not create workbook instance! Got null reference from Java.")
 			.Object

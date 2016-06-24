@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2013 Mirai Solutions GmbH
+# Copyright (C) 2010-2016 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -44,6 +44,10 @@ XLConnectSettings <- function(pdesc) {
 	options(XLConnect.Sheet = "#xlc#")
 	# Rowname column (used by xlcDump, xlcRestore)
 	options(XLConnect.RownameCol = ".rownames")
+  
+  # Lower ratio between de- and inflated bytes in zip bomb detection
+  # See https://bz.apache.org/bugzilla/show_bug.cgi?id=50090
+	J("org.apache.poi.openxml4j.util.ZipSecureFile")$setMinInflateRatio(0.001)
 	
 	invisible()
 }

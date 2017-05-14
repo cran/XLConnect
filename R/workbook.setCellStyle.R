@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2016 Mirai Solutions GmbH
+# Copyright (C) 2010-2017 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -32,8 +32,8 @@ setGeneric("setCellStyle",
 setMethod("setCellStyle", 
 		signature(object = "workbook", formula = "missing", sheet = "numeric"), 
 		function(object, formula, sheet, row, col, cellstyle) {
-			xlcCall(object, "setCellStyle", as.integer(sheet - 1), as.integer(row - 1),
-				as.integer(col - 1), cellstyle)
+		  xlcCall(object, "setCellStyleSheetIndex", .jseq(as.integer(sheet - 1)), .jsle(row - 1),
+		    .jsle(col - 1), .jseq(cellstyle), .recycle = FALSE)
 			invisible()
 		}
 )
@@ -41,8 +41,8 @@ setMethod("setCellStyle",
 setMethod("setCellStyle", 
 		signature(object = "workbook", formula = "missing", sheet = "character"), 
 		function(object, formula, sheet, row, col, cellstyle) {
-			xlcCall(object, "setCellStyle", sheet, as.integer(row - 1),
-					as.integer(col - 1), cellstyle)
+		  xlcCall(object, "setCellStyleSheetName", .jseq(sheet), .jsle(row - 1),
+		    .jsle(col - 1), .jseq(cellstyle), .recycle = FALSE)
 			invisible()
 		}
 )
@@ -50,7 +50,7 @@ setMethod("setCellStyle",
 setMethod("setCellStyle",
     signature(object = "workbook", formula = "character", sheet = "missing"),
     function(object, formula, sheet, row, col, cellstyle) {
-      xlcCall(object, "setCellStyle", formula, cellstyle)
+      xlcCall(object, "setCellStyleFormula", formula, cellstyle)
       invisible()
     }
 )

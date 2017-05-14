@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2016 Mirai Solutions GmbH
+# Copyright (C) 2010-2017 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -156,3 +156,10 @@ XLC$"FILL.THIN_BACKWARD_DIAG" <- 13
 XLC$"FILL.THIN_FORWARD_DIAG" <- 14
 XLC$"FILL.SQUARES" <- 15
 XLC$"FILL.DIAMONDS" <- 16
+
+# Hyperlink constants (for method workbook.setHyperlink)
+XLC$"HYPERLINK.NONE" <- "NONE"
+XLC$"HYPERLINK.URL" <- "URL"
+XLC$"HYPERLINK.EMAIL" <- "EMAIL"
+XLC$"HYPERLINK.FILE" <- "FILE"
+XLC$"HYPERLINK.DOCUMENT" <- "DOCUMENT"

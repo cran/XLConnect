@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2016 Mirai Solutions GmbH
+# Copyright (C) 2010-2017 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -51,7 +51,7 @@ setMethod("readTable",
 
 		subset <- getColSubset(object, sheet, startRow, endRow, startCol, endCol, header, numcols, keep, drop)
 		dataFrame <- xlcCall(object, "readTable", as.integer(sheet - 1), table, header, .jarray(classToXlcType(colTypes)), 
-				forceConversion, dateTimeFormat, useCachedValues, subset, readStrategy, SIMPLIFY = FALSE)
+				forceConversion, dateTimeFormat, useCachedValues, subset, readStrategy, .simplify = FALSE)
 		
 
     # get data.frames from Java

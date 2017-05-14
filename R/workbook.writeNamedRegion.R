@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2016 Mirai Solutions GmbH
+# Copyright (C) 2010-2017 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -35,7 +35,7 @@ setMethod("writeNamedRegion",
 		data <- includeRownames(data, rownames)
 		# pass data.frame's to Java - construct RDataFrameWrapper Java object references
 		data <- lapply(wrapList(data), dataframeToJava)
-		xlcCall(object, "writeNamedRegion", data, name, header, SIMPLIFY = FALSE)
+		xlcCall(object, "writeNamedRegion", data, name, header, .simplify = FALSE)
 		invisible()
 	}
 )

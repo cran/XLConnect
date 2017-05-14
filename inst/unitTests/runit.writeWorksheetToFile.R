@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2013 Mirai Solutions GmbH
+# Copyright (C) 2010-2017 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -72,6 +72,7 @@ test.writeWorksheetToFile <- function() {
 		# built-in dataset ChickWeight (*.xlsx)
 		testDataFrame(file.xlsx, ChickWeight)
 		
+		CO = CO2 # CO2 seems to be an illegal name
 		# built-in dataset CO2 (*.xls)
 		testDataFrame(file.xls, CO2)
 		# built-in dataset CO2 (*.xlsx)

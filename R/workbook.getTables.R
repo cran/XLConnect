@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2016 Mirai Solutions GmbH
+# Copyright (C) 2010-2017 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -32,7 +32,7 @@ setGeneric("getTables",
 setMethod("getTables", 
 	signature(object = "workbook", sheet = "numeric"), 
 	function(object, sheet, simplify = TRUE) {
-	  res <- xlcCall(object, "getTables", as.integer(sheet - 1), SIMPLIFY = FALSE)
+	  res <- xlcCall(object, "getTables", as.integer(sheet - 1), .simplify = FALSE)
     if(simplify && (length(res) == 1)) {
       res[[1]]
     } else {
@@ -44,7 +44,7 @@ setMethod("getTables",
 setMethod("getTables", 
   signature(object = "workbook", sheet = "character"), 
   function(object, sheet, simplify = TRUE) {
-    res <- xlcCall(object, "getTables", sheet, SIMPLIFY = FALSE)
+    res <- xlcCall(object, "getTables", sheet, .simplify = FALSE)
     if(simplify && (length(res) == 1)) {
       res[[1]]
     } else {

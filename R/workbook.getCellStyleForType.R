@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2017 Mirai Solutions GmbH
+# Copyright (C) 2010-2018 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -32,7 +32,7 @@ setGeneric("getCellStyleForType",
 setMethod("getCellStyleForType", 
           signature(object = "workbook"), 
           function(object, type) {
-            jobj <- jTryCatch(object@jobj$getCellStyleForDataType(classToXlcType(type)))
+            jobj <- xlcCall(object, "getCellStyleForDataType", classToXlcType(type), .recycle = FALSE)
             new("cellstyle", jobj = jobj)
           }
 )

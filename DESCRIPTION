@@ -1,8 +1,7 @@
 Package: XLConnect
 Type: Package
 Title: Excel Connector for R
-Version: 0.2-15
-Date: 2018-04-05
+Version: 1.0.0
 Authors@R: c(person("Mirai Solutions GmbH", role = "aut",
                     email = "xlconnect@mirai-solutions.com"),
              person("Martin", "Studer", role = "cre",
@@ -14,8 +13,8 @@ Authors@R: c(person("Mirai Solutions GmbH", role = "aut",
 URL: http://www.mirai-solutions.com
         https://github.com/miraisolutions/xlconnect
 BugReports: https://github.com/miraisolutions/xlconnect/issues
-SystemRequirements: Java (>= 6)
-Depends: R (>= 2.10.0), XLConnectJars (== 0.2-15)
+SystemRequirements: Java (>= 8, <= 11)
+Depends: R (>= 2.10.0)
 Imports: methods, rJava
 Suggests: RUnit, lattice, ggplot2 (>= 0.9.3), zoo
 Description: Provides comprehensive functionality to read, write and format Excel data.
@@ -23,11 +22,11 @@ License: GPL-3
 Copyright: See file COPYRIGHTS
 LazyData: yes
 NeedsCompilation: no
-Packaged: 2018-04-05 16:00:57 UTC; mstuder
+Packaged: 2020-03-20 07:05:20 UTC; root
 Author: Mirai Solutions GmbH [aut],
   Martin Studer [cre],
   The Apache Software Foundation [ctb, cph] (Apache POI),
   Graph Builder [ctb, cph] (Curvesapi Java library)
 Maintainer: Martin Studer <martin.studer@mirai-solutions.com>
 Repository: CRAN
-Date/Publication: 2018-04-05 17:20:46 UTC
+Date/Publication: 2020-03-20 09:50:11 UTC

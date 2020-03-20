@@ -18,7 +18,7 @@ URL: \tab \url{http://www.mirai-solutions.com}\cr
 \tab \url{https://github.com/miraisolutions/xlconnect}\cr
 BugReports: \tab \url{https://github.com/miraisolutions/xlconnect/issues}\cr
 SystemRequirements: \tab Java (>= 6)\cr
-Depends: \tab R (>= 2.10.0), XLConnectJars (== 0.2-15)\cr
+Depends: \tab R (>= 2.10.0)\cr
 Imports: \tab methods, rJava\cr
 Suggests: \tab RUnit, lattice, ggplot2 (>= 0.9.3), zoo\cr
 License: \tab GPL-3\cr
@@ -38,7 +38,7 @@ Mirai Solutions on GitHub: \url{https://github.com/miraisolutions}\cr
 Apache POI: \url{http://poi.apache.org}
 }
 \keyword{ package }
-\examples{
+\examples{\dontrun{
 # Load workbook; create if not existing
 wb <- loadWorkbook("XLConnect.xlsx", create = TRUE)
 
@@ -53,4 +53,8 @@ writeNamedRegion(wb, mtcars, name = "mtcars")
 
 # Save workbook
 saveWorkbook(wb)
+
+# clean up 
+file.remove("XLConnect.xlsx")
+}
 }

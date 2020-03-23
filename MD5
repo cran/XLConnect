@@ -1,6 +1,6 @@
-1babb030bc7625cff22543c7b3abae68 *DESCRIPTION
+301fcbdc9ad94414493877af96ec677c *DESCRIPTION
 8773e06f67c8f880d9168338c15c8fa0 *NAMESPACE
-69c014d2c5639034232aa8dc6426560d *NEWS
+ef0de5c94fb7d88491118f91355f1dde *NEWS
 25882b0744587365691a8a0ad4cd3262 *R/XLConnectSettings.R
 71ddf319f608dea1f7bffe6b823ad02f *R/aref.R
 70b4c1a243eda38bbae2a362102581c1 *R/aref2idx.R
@@ -32,7 +32,7 @@ b3298bc6b11860533521698f95ece7ca *R/includeRownames.R
 754e6d67bfe6e2736e5460c30b399045 *R/mirai.R
 e80bdbf1da26b86f09bf765b68af7418 *R/normalizeDataframe.R
 a0eea0cf1b2602937d38799bcb64103f *R/onAttach.R
-072fbc854c422f87c8ebf48459f539ec *R/onLoad.R
+b1ce1be99697a78f08bf5255ddea6f59 *R/onLoad.R
 f51ddf8c63539beb60c03d04a3ecc29e *R/readNamedRegionFromFile.R
 b511a8792a06b6dbcc99d444936e9496 *R/readWorksheetFromFile.R
 8a7bb8f3e5ce23ac48edec3c1fc3b902 *R/rg2idx.R
@@ -120,7 +120,7 @@ f11b52bcb79634aa59670acd4942add8 *R/xlcEnsureDependenciesFor.R
 d5f529414812221293c93fc8e61b83fa *R/xlcFreeMemory.R
 2aeacbbaa795cfac8224d209206fb170 *R/xlcMemoryReport.R
 5d355fc2bd167bdf3f9740aef4e285e6 *R/xlcRestore.R
-3f6dd7c41e306b1c96c013cc8805697d *README.md
+9655c89594b2ee4c78431a9d896dec4f *README.md
 2de5b0f17b3d7f3b9c4fff1ceab37153 *build/vignette.rds
 01e8a4694c596b41038e2b129d72bd22 *data/swissfranc.rda
 7cd68b9480250860424145210a575045 *demo/00Index
@@ -151,9 +151,9 @@ ebecf379154d7da437b4d01441573f1f *inst/demoFiles/errorCell.xlsx
 0036c8cab21f9f3037239424707d383d *inst/demoFiles/template2.xlsx
 c175fc00d90e99d51f2c46d8629087d6 *inst/doc/XLConnect.R
 e34cf67da9074a32b51e32ffa009ec49 *inst/doc/XLConnect.Rnw
-65ce3f0a59c7a64252eae11729282432 *inst/doc/XLConnect.pdf
+a5b33dce9e371001e85d170bcc0867e8 *inst/doc/XLConnect.pdf
 0fb03d4dc2523a21c9bdcbb11f2db406 *inst/doc/XLConnectImpatient.Rnw
-aae79fa9dbc464004d1aa2c3887cf848 *inst/doc/XLConnectImpatient.pdf
+0bd521e88dbccb6f7f694536807317e6 *inst/doc/XLConnectImpatient.pdf
 07fb5f9b464f4f08a5210bcf2a2e0027 *inst/java/XLConnect-1.0.0.jar
 049221bdb7f8d8a2065c02000e854ed4 *inst/java/curvesapi-1.06.jar
 cc03f39390d5c0db847310127d901bde *inst/unitTests/resources/testBug49.xlsx
@@ -223,7 +223,7 @@ c867a6013304b1a7baa9cd89f3ade8ab *man/XLConnect-package.Rd
 da1a6eab48792975e89b059af1f9ca21 *man/XLConnectSettings.Rd
 03683066b09d08ccf9e4e1005b285858 *man/addImage-methods.Rd
 fbe302da1c62665cd5c7bc2f835ee072 *man/appendNamedRegion-methods.Rd
-fc4f992adb9c498bae0dc3c2d650b7db *man/appendWorksheet-methods.Rd
+124088b1f1e2df91119bf4b4925b04bb *man/appendWorksheet-methods.Rd
 db73f0d24db7c7c97d88b37f3486625c *man/aref.Rd
 89ba642a542dc8338701fdc1c53ee8dd *man/aref2idx.Rd
 2f2baeaf3a4594b36b8e5d08a1de574b *man/cellstyle-class.Rd

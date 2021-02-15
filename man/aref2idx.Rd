@@ -20,13 +20,15 @@ and the third and fourth columns represent the bottom right corner of the refere
 }
 \author{
 Martin Studer\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \seealso{
 \code{\link{idx2aref}}, \code{\link{aref}}, \code{\link{cref2idx}},
 \code{\link{idx2cref}}, \code{\link{col2idx}}, \code{\link{idx2col}}
 }
 \examples{
+\dontrun{
 aref2idx(c("A1:B6", "B6:C17"))
+}
 }
 \keyword{utilities}

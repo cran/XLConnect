@@ -14,7 +14,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 #############################################################################
 
@@ -27,8 +27,8 @@
 #
 #############################################################################
 
-xlcEnsureDependenciesFor <- function (url, name, pattern, libname, pkgname) {
-  files <- list.files("/usr/share/java", pattern = pattern, full.names = TRUE)
+xlcEnsureDependenciesFor <- function (url, name, versionpattern, libname, pkgname, debianpkg = NULL, rpmpkg = NULL) {
+  files <- checkSystemPackage(debianpkg, rpmpkg, versionpattern)
   numJars = length(files)
   if(numJars == 0) {
     if (!interactive()) {

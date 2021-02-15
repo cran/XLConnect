@@ -133,7 +133,7 @@ named \code{list} named by the corresponding worksheets.
 Martin Studer\cr
 Thomas Themel\cr
 Nicola Lambiase\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \note{
 If no specific column types (see argument \code{colTypes}) are specified,
@@ -167,6 +167,7 @@ Fractional days represent hours, minutes, and seconds.
   \code{\link[=onErrorCell-methods]{onErrorCell}}
 }
 \examples{
+\dontrun{
 ## Example 1:
 # mtcars xlsx file from demoFiles subfolder of package XLConnect
 demoExcelFile <- system.file("demoFiles/mtcars.xlsx", package = "XLConnect")
@@ -230,6 +231,7 @@ wb <- loadWorkbook(demoExcelFile)
 
 # Read the columns 1, 3 and 5 from the sheet 'mtcars' (with default header = TRUE)
 data <- readWorksheet(wb, sheet = "mtcars", keep=c(1,3,5))
+}
 }
 \keyword{methods}
 \keyword{IO}

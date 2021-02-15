@@ -19,7 +19,7 @@ Queries the coordinates of an Excel name in a \code{\linkS4class{workbook}}.
 
 \author{
 Thomas Themel\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \seealso{
 \code{\linkS4class{workbook}}, \code{\link[=createName-methods]{createName}}, \code{\link[=existsName-methods]{existsName}},
@@ -27,6 +27,7 @@ Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
 \code{\link[=getReferenceCoordinatesForTable-methods]{getReferenceCoordinatesForTable}}
 }
 \examples{
+\dontrun{
 # mtcars xlsx file from demoFiles subfolder of package XLConnect
 demoExcelFile <- system.file("demoFiles/mtcars.xlsx", package = "XLConnect")
 
@@ -35,6 +36,7 @@ wb <- loadWorkbook(demoExcelFile)
 
 # Query reference coordinate for name 'mtcars'
 print(getReferenceCoordinatesForName(wb, name = "mtcars"))
+}
 }
 \keyword{methods}
 \keyword{utilities}

@@ -17,12 +17,13 @@ Queries the index of the active worksheet in a \code{\linkS4class{workbook}}.
 
 \author{
 Martin Studer\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \seealso{
 \code{\linkS4class{workbook}}, \code{\link[=getActiveSheetName-methods]{getActiveSheetName}}
 }
 \examples{
+\dontrun{
 # mtcars xlsx file from demoFiles subfolder of package XLConnect
 demoExcelFile <- system.file("demoFiles/mtcars.xlsx", package = "XLConnect")
 
@@ -31,6 +32,7 @@ wb <- loadWorkbook(demoExcelFile)
 
 # Query the active sheet index
 activeSheet <- getActiveSheetIndex(wb)
+}
 }
 \keyword{methods}
 \keyword{utilities}

@@ -31,7 +31,7 @@ Clearing a cell range means to clear all the cells associated with that range.
 
 \author{
 Nicola Lambiase\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \seealso{
 \code{\linkS4class{workbook}}, \code{\link[=clearSheet-methods]{clearSheet}}, 
@@ -40,6 +40,7 @@ Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
 \code{\link[=clearSheet-methods]{clearSheet}}
 }
 \examples{
+\dontrun{
 # mtcars xlsx file from demoFiles subfolder of 
 # package XLConnect
 demoExcelFile <- system.file("demoFiles/mtcars.xlsx", 
@@ -64,6 +65,7 @@ clearRange(wb, sheet = "mtcars",
 # This in turn is the same as ...
 clearRangeFromReference(wb, reference = c("mtcars!A5:D6",
                         "mtcars!G5:I7"))
+}
 }
 \keyword{methods}
 \keyword{utilities}

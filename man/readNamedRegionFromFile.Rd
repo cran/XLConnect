@@ -18,7 +18,7 @@ readNamedRegionFromFile(file, ...)
 
 \author{
 Thomas Themel\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 
 \seealso{
@@ -29,6 +29,7 @@ Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
   \code{\link[=onErrorCell-methods]{onErrorCell}}
 }
 \examples{
+\dontrun{
 # multiregion xlsx file from demoFiles subfolder of package XLConnect
 demoExcelFile <- system.file("demoFiles/multiregion.xlsx", 
                              package = "XLConnect")
@@ -40,5 +41,6 @@ df <- readNamedRegionFromFile(demoExcelFile, name="Iris")
 # of data.frames.
 df <- readNamedRegionFromFile(demoExcelFile, 
                               name=c("Calendar", "Iris", "IQ"))
+}
 }
 \keyword{IO}

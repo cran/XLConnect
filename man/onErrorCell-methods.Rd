@@ -24,7 +24,7 @@ are detected.
 }
 \author{
 Martin Studer\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \seealso{
 \code{\linkS4class{workbook}}, \code{\link[=readNamedRegion-methods]{readNamedRegion}},
@@ -32,6 +32,7 @@ Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
 \code{\link{readWorksheetFromFile}}
 }
 \examples{
+\dontrun{
 # errorCell xlsx file from demoFiles subfolder of package XLConnect
 demoExcelFile <- system.file("demoFiles/errorCell.xlsx", 
 							  package = "XLConnect")
@@ -57,6 +58,7 @@ onErrorCell(wb, XLC$ERROR.STOP)
 res <- try(readNamedRegion(wb, name = "MyData"))
 # Did we get an error?
 print(is(res, "try-error"))
+}
 }
 \keyword{utilities}
 \keyword{error}

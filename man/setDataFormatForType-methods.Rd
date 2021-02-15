@@ -24,11 +24,11 @@ Excel way. Refer to the Excel help or to the link below for more information.
 }
 \references{
 Excel custom data formats:\cr
-\url{http://www.ozgrid.com/Excel/CustomFormats.htm}
+\url{https://www.ozgrid.com/Excel/CustomFormats.htm}
 }
 \author{
 Martin Studer\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \seealso{
 \code{\linkS4class{workbook}}, \code{\link[=setStyleAction-methods]{setStyleAction}}

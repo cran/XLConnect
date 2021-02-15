@@ -23,12 +23,13 @@ Returns the (1-based) numeric index of the last non-empty column in the specifie
 }
 \author{
 Martin Studer\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \seealso{
 \code{\linkS4class{workbook}}
 }
 \examples{
+\dontrun{
 # mtcars xlsx file from demoFiles subfolder of package XLConnect
 demoExcelFile <- system.file("demoFiles/mtcars.xlsx", package = "XLConnect")
 
@@ -43,6 +44,7 @@ getLastColumn(wb, "mtcars2")
 
 # Query the last row of the 'mtcars3' worksheet
 getLastColumn(wb, "mtcars3")
+}
 }
 \keyword{methods}
 \keyword{utilities}

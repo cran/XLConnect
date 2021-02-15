@@ -30,12 +30,13 @@ different sheets) can be set with one method call.
 
 \author{
 Martin Studer\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \seealso{
 \code{\linkS4class{workbook}}, \code{\link[=setRowHeight-methods]{setRowHeight}}
 }
 \examples{
+\dontrun{
 # mtcars xlsx file from demoFiles subfolder of package XLConnect
 mtcarsFile <- system.file("demoFiles/mtcars.xlsx", package = "XLConnect")
 
@@ -45,6 +46,7 @@ wb <- loadWorkbook(mtcarsFile)
 # Sets the column width of the 3rd column on sheet 'mtcars' 
 # to 4000/256th (= 15.625) character width
 setColumnWidth(wb, sheet = "mtcars", column = 3, width = 4000)
+}
 }
 \keyword{methods}
 \keyword{utilities}

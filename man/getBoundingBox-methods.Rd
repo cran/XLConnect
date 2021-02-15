@@ -43,12 +43,13 @@ The arguments \code{autofitRow} and \code{autofitCol} (both defaulting to \code{
 }
 \author{
 Nicola Lambiase\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \seealso{
 \code{\linkS4class{workbook}}
 }
 \examples{
+\dontrun{
 # multiregion xlsx file from demoFiles subfolder of package XLConnect
 demoExcelFile <- system.file("demoFiles/multiregion.xlsx", package = "XLConnect")
 
@@ -60,6 +61,7 @@ print(getBoundingBox(wb, sheet="SecondSheet"))
 
 # Query bounding box for the first sheet, selecting the columns from 5 to 8
 print(getBoundingBox(wb, sheet="FirstSheet", startCol=5, endCol=8))
+}
 }
 \keyword{methods}
 \keyword{utilities}

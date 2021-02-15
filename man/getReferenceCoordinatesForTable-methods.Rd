@@ -22,7 +22,7 @@ Queries the coordinates of an Excel table (Office 2007+) in a \code{\linkS4class
 
 \author{
 Martin Studer\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \seealso{
 \code{\linkS4class{workbook}}, \code{\link[=createName-methods]{createName}}, \code{\link[=existsName-methods]{existsName}},
@@ -30,6 +30,7 @@ Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
 \code{\link[=getReferenceCoordinatesForName-methods]{getReferenceCoordinatesForName}}
 }
 \examples{
+\dontrun{
 # mtcars xlsx file from demoFiles subfolder of package XLConnect
 demoExcelFile <- system.file("demoFiles/mtcars.xlsx", package = "XLConnect")
 
@@ -40,6 +41,7 @@ wb <- loadWorkbook(demoExcelFile)
 # 'mtcars_table'
 print(getReferenceCoordinatesForTable(wb, sheet = "mtcars_table", 
                                       table = "MtcarsTable"))
+}
 }
 \keyword{methods}
 \keyword{utilities}

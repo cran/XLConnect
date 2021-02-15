@@ -25,7 +25,7 @@ therefore multiple names can be checked for existence in one method call.
 
 \author{
 Martin Studer\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \seealso{
 \code{\linkS4class{workbook}}, \code{\link[=createName-methods]{createName}}, \code{\link[=removeName-methods]{removeName}},
@@ -33,6 +33,7 @@ Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
 \code{\link[=writeNamedRegion-methods]{writeNamedRegion}}
 }
 \examples{
+\dontrun{
 # mtcars xlsx file from demoFiles subfolder of package XLConnect
 mtcarsFile <- system.file("demoFiles/mtcars.xlsx", package = "XLConnect")
 
@@ -42,6 +43,7 @@ wb <- loadWorkbook(mtcarsFile)
 # Check if the name 'mtcars' exists
 # (should return TRUE since the name is defined as 'mtcars!$A$1:$K$33')
 existsName(wb, name = "mtcars")
+}
 }
 \keyword{methods}
 \keyword{utilities}

@@ -20,14 +20,16 @@ Returns the area reference (\code{character}) for the specified top left cell an
 }
 \author{
 Martin Studer\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \seealso{
 \code{\link{aref2idx}}, \code{\link{idx2aref}},
 \code{\link{idx2cref}}, \code{\link{col2idx}}, \code{\link{idx2col}}
 }
 \examples{
+\dontrun{
 aref("A1", dim(mtcars))
 aref(c(1, 1), dim(mtcars))
+}
 }
 \keyword{utilities}

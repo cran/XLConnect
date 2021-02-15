@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2013 Mirai Solutions GmbH
+# Copyright (C) 2010-2021 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,7 +14,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 #############################################################################
 
@@ -27,7 +27,7 @@
 #############################################################################
 
 # Set timezone to UTC
-Sys.setenv("TZ" = "UTC")
+# Sys.setenv("TZ" = "UTC")
 
 # Limit number of GC threads; set timezone
 options(java.parameters = c("-XX:+UseParallelGC", "-XX:ParallelGCThreads=1", paste0("-Duser.timezone=", Sys.timezone())))
@@ -90,7 +90,7 @@ runUnitTests <- function() {
 		printHTMLProtocol(TestResult, fileName = htmlProtocol)
 		
 		# Show HTML Test Protocol
-		browseURL(url = htmlProtocol)
+		if (interactive()) { browseURL(url = htmlProtocol) }
 		
 		## Return stop() to cause R CMD check stop in case of
 		##  - failures i.e. FALSE to unit tests or

@@ -19,13 +19,14 @@ Queries the reference formula of an Excel name in a \code{\linkS4class{workbook}
 
 \author{
 Martin Studer\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \seealso{
 \code{\linkS4class{workbook}}, \code{\link[=createName-methods]{createName}}, \code{\link[=existsName-methods]{existsName}},
 \code{\link[=removeName-methods]{removeName}}
 }
 \examples{
+\dontrun{
 # mtcars xlsx file from demoFiles subfolder of package XLConnect
 demoExcelFile <- system.file("demoFiles/mtcars.xlsx", package = "XLConnect")
 
@@ -34,6 +35,7 @@ wb <- loadWorkbook(demoExcelFile)
 
 # Query reference formula for name 'mtcars'
 print(getReferenceFormula(wb, name = "mtcars"))
+}
 }
 \keyword{methods}
 \keyword{utilities}

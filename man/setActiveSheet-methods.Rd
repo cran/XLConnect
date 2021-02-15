@@ -20,7 +20,7 @@ Sets the active worksheet of a \code{\linkS4class{workbook}}.
 
 \author{
 Martin Studer\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \note{
 The active worksheet of a \code{\linkS4class{workbook}} is the worksheet that is displayed
@@ -32,6 +32,7 @@ when the corresponding Excel file is opened.
 \code{\link[=existsSheet-methods]{existsSheet}}, \code{\link[=getSheets-methods]{getSheets}}
 }
 \examples{
+\dontrun{
 # mtcars xlsx file from demoFiles subfolder of package XLConnect
 mtcarsFile <- system.file("demoFiles/mtcars.xlsx", package = "XLConnect")
 
@@ -40,6 +41,7 @@ wb <- loadWorkbook(mtcarsFile)
 
 # Sets the active sheet to the sheet 'mtcars3'
 setActiveSheet(wb, sheet = "mtcars3")
+}
 }
 \keyword{methods}
 \keyword{utilities}

@@ -20,13 +20,15 @@ the column indices.
 }
 \author{
 Martin Studer\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \seealso{
 \code{\link{idx2cref}}, \code{\link{col2idx}}, \code{\link{idx2col}},
 \code{\link{idx2aref}}, \code{\link{aref2idx}}, \code{\link{aref}}
 }
 \examples{
+\dontrun{
 cref2idx(c("$A$20", "B18"))
+}
 }
 \keyword{utilities}

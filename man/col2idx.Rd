@@ -19,13 +19,15 @@ Note that passing invalid column name references may result in an arbitrary numb
 }
 \author{
 Martin Studer\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \seealso{
 \code{\link{idx2col}}, \code{\link{cref2idx}}, \code{\link{idx2cref}},
 \code{\link{idx2aref}}, \code{\link{aref2idx}}, \code{\link{aref}}
 }
 \examples{
+\dontrun{
 col2idx(c("A", "BTG"))
+}
 }
 \keyword{utilities}

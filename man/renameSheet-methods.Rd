@@ -21,7 +21,7 @@ Renames a worksheet from a \code{\linkS4class{workbook}}.
 
 \author{
 Martin Studer\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \note{
 Note that renaming worksheets may result in invalid name references.
@@ -33,6 +33,7 @@ Note that renaming worksheets may result in invalid name references.
 \code{\link[=setActiveSheet-methods]{setActiveSheet}}
 }
 \examples{
+\dontrun{
 # mtcars xlsx file from demoFiles subfolder of package XLConnect
 mtcarsFile <- system.file("demoFiles/mtcars.xlsx", package = "XLConnect")
 
@@ -41,6 +42,7 @@ wb <- loadWorkbook(mtcarsFile)
 
 # Rename the worksheet called 'mtcars' from the above file to 'MyCars'
 renameSheet(wb, sheet = "mtcars", newName = "MyCars")
+}
 }
 \keyword{methods}
 \keyword{utilities}

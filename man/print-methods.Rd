@@ -22,18 +22,20 @@ slot of the \code{\linkS4class{workbook}} class).
 }
 \author{
 Martin Studer\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \seealso{
 \code{\linkS4class{workbook}}
 }
 \examples{
+\dontrun{
 # Load existing demo Excel file 'mtcars.xlsx' from the XLConnect package
 wb.mtcars <- loadWorkbook(system.file("demoFiles/mtcars.xlsx", 
                           package = "XLConnect"))
 
 # Print the workbook's underlying filename
 print(wb.mtcars)
+}
 }
 \keyword{methods}
 \keyword{print}

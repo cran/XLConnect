@@ -28,13 +28,15 @@ Returns a character vector of corresponding Excel cell references.
 }
 \author{
 Martin Studer\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \seealso{
 \code{\link{cref2idx}}, \code{\link{idx2col}}, \code{\link{col2idx}},
 \code{\link{idx2aref}}, \code{\link{aref2idx}}, \code{\link{aref}}
 }
 \examples{
+\dontrun{
 idx2cref(c(5, 8, 14, 38))
+}
 }
 \keyword{utilities}

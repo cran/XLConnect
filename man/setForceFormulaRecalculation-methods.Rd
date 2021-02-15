@@ -28,7 +28,7 @@
 
 \author{
 Thomas Themel\cr
-Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
+Mirai Solutions GmbH \url{https://mirai-solutions.ch}
 }
 \note{
   A typical use for this flag is forcing Excel into updating formulas
@@ -41,6 +41,7 @@ Mirai Solutions GmbH \url{http://www.mirai-solutions.com}
 \code{\link[=getForceFormulaRecalculation-methods]{getForceFormulaRecalculation}}
 }
 \examples{
+\dontrun{
 # mtcars xlsx file from demoFiles subfolder of package XLConnect
 demoExcelFile <- system.file("demoFiles/mtcars.xlsx", package = "XLConnect")
 
@@ -51,6 +52,7 @@ wb <- loadWorkbook(demoExcelFile)
 setForceFormulaRecalculation(wb, sheet = "mtcars", TRUE)
 # The same with a numerical sheet index
 setForceFormulaRecalculation(wb, sheet = 1, TRUE)
+}
 }
 \keyword{methods}
 \keyword{utilities}

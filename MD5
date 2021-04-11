@@ -1,6 +1,6 @@
-fe3f939cd7a91d092f65fd6305bf7e10 *DESCRIPTION
+014890a4fe8d3b5c0404edaabb2df39b *DESCRIPTION
 8773e06f67c8f880d9168338c15c8fa0 *NAMESPACE
-fcaec54374eb7aada1c305a859ae6b09 *NEWS
+800677ce5dac42679ebcd71d06dfa3df *NEWS
 1f55cf09350934e064210c8898d53297 *R/XLConnectSettings.R
 346401b27fe4db8c4027726677d9c04d *R/aref.R
 ab040f4c10c2885acfae8d79e24a79b8 *R/aref2idx.R
@@ -33,7 +33,7 @@ a2963a1319735e18db46147ac844edf7 *R/jsle.R
 ba2f0d21496b57e1ef5aa84217a42a19 *R/mirai.R
 7db549a9456a1b07c31db38536732b1c *R/normalizeDataframe.R
 36909011d1f3a87e038390de87707783 *R/onAttach.R
-72bf5791f7e43ccf033766a20bcaf1a6 *R/onLoad.R
+c1db8add26267a0da5f772622fe47cc8 *R/onLoad.R
 3b33bb35f0a93acc7e24922b0b0780f9 *R/readNamedRegionFromFile.R
 aadc8b6b595e90b321515cc4e346d700 *R/readWorksheetFromFile.R
 5def15f616a9b43d480603ccd2906c13 *R/rg2idx.R
@@ -117,7 +117,7 @@ f0ae4acf895970de7b6a93addf208583 *R/workbook.show.R
 cb63637a54007acc1ecc88d62486dd14 *R/xlcCall.R
 c06bd63e60d7312765c18b0b0038842f *R/xlcDump.R
 7bf157e5533ed303984b18e7db8cd97d *R/xlcEdit.R
-725452d387d9cd275dcfe54beb81bd60 *R/xlcEnsureDependenciesFor.R
+5fb52e7fe29c94c82c5a9ee5073a2e85 *R/xlcEnsureDependenciesFor.R
 8d3923a6c5b3544c7865a5048a7622b8 *R/xlcFreeMemory.R
 989d6156a4d37482696d331738e91be5 *R/xlcMemoryReport.R
 9d2b642e8a62e2a72efab87462c3f72e *R/xlcRestore.R
@@ -152,10 +152,10 @@ ebecf379154d7da437b4d01441573f1f *inst/demoFiles/errorCell.xlsx
 0036c8cab21f9f3037239424707d383d *inst/demoFiles/template2.xlsx
 dde88dfc79dccd4074b87017ad05e381 *inst/doc/XLConnect.R
 9568943224703713c57fed13da3ba89f *inst/doc/XLConnect.Rnw
-d3a4d46c52670199455730ff144078e9 *inst/doc/XLConnect.pdf
+4c58b07c17dfab8bbff80c043c357900 *inst/doc/XLConnect.pdf
 0360dfef7c4cb8246bc1d7686a0bee68 *inst/doc/XLConnectImpatient.Rnw
-5c29d350b3b8c90b7665a402595576a6 *inst/doc/XLConnectImpatient.pdf
-a27e812605a960e1900131024fd40626 *inst/java/XLConnect-1.0.2.jar
+9e262df1af4c7de3686e2fd7964f117f *inst/doc/XLConnectImpatient.pdf
+7f11fa3c18ea5b4b74317e2cda83a0e3 *inst/java/XLConnect-1.0.3.jar
 049221bdb7f8d8a2065c02000e854ed4 *inst/java/curvesapi-1.06.jar
 8ede85ae5b94fccae840c56f46507d84 *inst/unitTests/resources/testBug106.xlsx
 cc03f39390d5c0db847310127d901bde *inst/unitTests/resources/testBug49.xlsx
@@ -218,7 +218,7 @@ e5f3ba38095d386ae45864458aa1accd *inst/unitTests/runit.writeAndReadNamedRegion.R
 054d2cdabbdef1b2803c87c0ffe2d693 *inst/unitTests/runit.writeAndReadWorksheet.R
 a4f6d085652f7915f9bc2c4d7ed44084 *inst/unitTests/runit.writeNamedRegionToFile.R
 fde6c2d2beaa505392edff06c34f332c *inst/unitTests/runit.writeWorksheetToFile.R
-49fe97e3dee690606127ac81c24d6ed3 *java/README
+c71f60c097519675b9814badc60a93bc *java/README
 6cff7d62101deda31f8e0065fc94825d *man/XLC.Rd
 5f87492391aa692d31cc5c7155496d89 *man/XLConnect-deprecated.Rd
 2d90698cb8c130fa9cb62e3c72edf5c7 *man/XLConnect-package.Rd

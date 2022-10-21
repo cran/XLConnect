@@ -20,31 +20,10 @@
 
 #############################################################################
 #
-# Set a flag to force excel to recalculate formula values
+# Override rJava's J() to use the dedicated classloader, as advised by
+# Simon Urbanek in the rJava CHANGELOG (https://cran.r-project.org/package=rJava/NEWS)
 # 
-# Author: Martin Studer, Mirai Solutions GmbH
+# Author: Simon Poltier, Mirai Solutions GmbH
 #
 #############################################################################
-
-setGeneric("setForceFormulaRecalculation",
-		function(object, sheet, value) standardGeneric("setForceFormulaRecalculation"))
-
-setMethod("setForceFormulaRecalculation", 
-		signature(object = "workbook", sheet = "character"), 
-		function(object, sheet, value) {
-		  if(length(sheet) == 1L && sheet == "*") {
-				callGeneric(object, getSheets(object), value)
-			} else
-				xlcCall(object, "setForceFormulaRecalculation", sheet, value)
-		  
-			invisible()
-		}
-)
-
-setMethod("setForceFormulaRecalculation", 
-		signature(object = "workbook", sheet = "numeric"), 
-		function(object, sheet, value) {
-			xlcCall(object, "setForceFormulaRecalculation", as.integer(sheet-1), value)
-			invisible()
-		}
-)
+J <- function(...) rJava::J(..., class.loader=.rJava.class.loader)

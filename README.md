@@ -9,7 +9,7 @@ XLConnect: Excel Connector for R
 [![CranLogsMonthly](https://cranlogs.r-pkg.org/badges/XLConnect?color=blue)](#xlconnect-excel-connector-for-r)
 [![CranLogsWeekly](https://cranlogs.r-pkg.org/badges/last-week/XLConnect?color=green)](#xlconnect-excel-connector-for-r)
 [![R](https://github.com/miraisolutions/xlconnect/workflows/R/badge.svg?branch=master&event=push)](https://github.com/miraisolutions/xlconnect/actions?query=workflow%3AR+branch%3Amaster)
-[![codecov](https://codecov.io/gh/miraisolutions/xlconnect/branch/master/graph/badge.svg)](https://codecov.io/gh/miraisolutions/xlconnect)
+[![codecov](https://codecov.io/gh/miraisolutions/xlconnect/branch/master/graph/badge.svg)](https://app.codecov.io/gh/miraisolutions/xlconnect)
 
 XLConnect is a comprehensive and cross-platform R package for manipulating Microsoft Excel files from within R. XLConnect differs from other related R packages in that it is completely cross-platform and as such runs under Windows, Unix/Linux and Mac (32- and 64-bit). Moreover, it does not require any installation of Microsoft Excel or any other special drivers to be able to read & write Excel files. The only requirement is a recent version of a Java Runtime Environment (JRE).
 
@@ -27,7 +27,7 @@ install_github("miraisolutions/xlconnect")
 install_github("miraisolutions/xlconnect", ref = "<version>")
 ```
 
-Please send any enhancement requests or bug reports with a simple and self-contained reproducible example to <a href="mailto:xlconnect@mirai-solutions.com">xlconnect@mirai-solutions.com</a> or log a corresponding issue on our <a href="https://github.com/miraisolutions/xlconnect">github repository</a>.
+Please log any enhancement requests or bug reports with a simple and self-contained reproducible example as an issue on our <a href="https://github.com/miraisolutions/xlconnect">github repository</a>.
 For other questions you may also use <a href="https://stackoverflow.com/questions/tagged/xlconnect">Stackoverflow</a>.
 
 Build for release on CRAN

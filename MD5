@@ -1,6 +1,6 @@
-46f02689cd7a24b466956b82cb0a5f50 *DESCRIPTION
+3ff26c05268b50f982f1243d4ce8fd3a *DESCRIPTION
 8773e06f67c8f880d9168338c15c8fa0 *NAMESPACE
-8b03c922b2ffa3497e40b8574c96f7cf *NEWS
+4075a018e6c762ce4edf5fcab41e8947 *NEWS
 7112e1952d2f4020146b7649342c2459 *R/J.R
 1f55cf09350934e064210c8898d53297 *R/XLConnectSettings.R
 346401b27fe4db8c4027726677d9c04d *R/aref.R
@@ -34,7 +34,7 @@ a2963a1319735e18db46147ac844edf7 *R/jsle.R
 ba2f0d21496b57e1ef5aa84217a42a19 *R/mirai.R
 7db549a9456a1b07c31db38536732b1c *R/normalizeDataframe.R
 36909011d1f3a87e038390de87707783 *R/onAttach.R
-fa68903e9e2879c2badc1c32befc2d7f *R/onLoad.R
+e7bc3196887c57a5413643389fa743dc *R/onLoad.R
 3b33bb35f0a93acc7e24922b0b0780f9 *R/readNamedRegionFromFile.R
 aadc8b6b595e90b321515cc4e346d700 *R/readWorksheetFromFile.R
 5def15f616a9b43d480603ccd2906c13 *R/rg2idx.R
@@ -122,8 +122,8 @@ c06bd63e60d7312765c18b0b0038842f *R/xlcDump.R
 8d3923a6c5b3544c7865a5048a7622b8 *R/xlcFreeMemory.R
 989d6156a4d37482696d331738e91be5 *R/xlcMemoryReport.R
 9d2b642e8a62e2a72efab87462c3f72e *R/xlcRestore.R
-1da7cbca0607800d92e13d295f771962 *README.md
-c27db55e55791abc60abf3305388441d *build/vignette.rds
+16e0d4306d2219bdc311e32441280749 *README.md
+af7689851e61822d1b28c6d1b471b4c7 *build/vignette.rds
 01e8a4694c596b41038e2b129d72bd22 *data/swissfranc.rda
 7cd68b9480250860424145210a575045 *demo/00Index
 0b8281d95aee694a2f6a97fbe1ba02d9 *demo/addImage.R
@@ -153,13 +153,14 @@ ebecf379154d7da437b4d01441573f1f *inst/demoFiles/errorCell.xlsx
 0036c8cab21f9f3037239424707d383d *inst/demoFiles/template2.xlsx
 dde88dfc79dccd4074b87017ad05e381 *inst/doc/XLConnect.R
 bc63c746af19db302d553f2843c5e4a7 *inst/doc/XLConnect.Rnw
-f094386daf7458e4ed8354610ae77529 *inst/doc/XLConnect.pdf
+c2b25d683f8221b436ba6e3d85eacc46 *inst/doc/XLConnect.pdf
 f1d57c337c025cb8d28d8591b31d1743 *inst/doc/XLConnectImpatient.Rnw
-4682b184019172ce61942943de803cf3 *inst/doc/XLConnectImpatient.pdf
+af2b50a90bba4a09929eaa267fcfbaf5 *inst/doc/XLConnectImpatient.pdf
 4c256e2c5fd73d1f9827ed57b4bf8343 *inst/java/XLConnect-1.0.6.jar
 79e44d3a323887fba21a34202b8eb1f9 *inst/java/curvesapi-1.07.jar
 8ede85ae5b94fccae840c56f46507d84 *inst/unitTests/resources/testBug106.xlsx
 aa2852d8e17ee5352f7731d64977ca86 *inst/unitTests/resources/testBug170.xlsx
+a15ebf6949770407c3e6bf2b0ab97cbd *inst/unitTests/resources/testBug181.xlsx
 cc03f39390d5c0db847310127d901bde *inst/unitTests/resources/testBug49.xlsx
 9350cc905f92e75b44dbf35dfa2e0a0c *inst/unitTests/resources/testBug52.xlsx
 e5d7d8abec8a34b44c882dbe038794ee *inst/unitTests/resources/testBug53.xlsx
@@ -218,6 +219,7 @@ ccd7cc648947a9705c1386894070f38f *inst/unitTests/runit.workbook.saveWorkbook.R
 1788ffd61f2b337ea7c6168c4b0946f3 *inst/unitTests/runit.workbook.setForceFormulaRecalculation.R
 6893dfd7d406876592689f7335734955 *inst/unitTests/runit.workbook.setMissingValue.R
 9cc9804109b5a7cee3fd7038fe496d83 *inst/unitTests/runit.workbook.setSheetPos.R
+f48662e498476e2153575189c2f48ad6 *inst/unitTests/runit.workbook.testBug181.R
 09b2cd69544c7cee2b5dce6998d48640 *inst/unitTests/runit.workbook.writeNamedRegion.R
 fb96cdd4c268ba15a2f39582d6ec046d *inst/unitTests/runit.workbook.writeWorksheet.R
 0a64ca37c88a82b04ca0246bc7c6f6c8 *inst/unitTests/runit.writeAndReadNamedRegion.R

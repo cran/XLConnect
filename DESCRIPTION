@@ -1,7 +1,7 @@
 Package: XLConnect
 Type: Package
 Title: Excel Connector for R
-Version: 1.0.7
+Version: 1.0.8
 Authors@R: c(person("Mirai Solutions GmbH", role = "aut",
                     email = "xlconnect@mirai-solutions.com"),
              person("Martin", "Studer", role = "cre",
@@ -24,7 +24,7 @@ License: GPL-3
 Copyright: See file COPYRIGHTS
 LazyData: yes
 NeedsCompilation: no
-Packaged: 2023-01-24 09:55:38 UTC; runner
+Packaged: 2024-01-30 12:08:42 UTC; runner
 Author: Mirai Solutions GmbH [aut],
   Martin Studer [cre],
   The Apache Software Foundation [ctb, cph] (Apache POI),
@@ -32,4 +32,4 @@ Author: Mirai Solutions GmbH [aut],
   Brett Woolridge [ctb, cph] (SparseBitSet Java library)
 Maintainer: Martin Studer <martin.studer@mirai-solutions.com>
 Repository: CRAN
-Date/Publication: 2023-01-24 13:40:16 UTC
+Date/Publication: 2024-01-30 15:30:02 UTC

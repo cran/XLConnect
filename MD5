@@ -1,6 +1,6 @@
-9b32e4643ba3a17fa23f5aeef1c2a28b *DESCRIPTION
+55f9105f3d5401b34e23b0a3d1bd5f31 *DESCRIPTION
 8773e06f67c8f880d9168338c15c8fa0 *NAMESPACE
-9a0450abb88a72127bc3677baae9968e *NEWS
+8e303437113b1754d581221238c20bd1 *NEWS
 22b6df4e57319dc4e08be023bdbdf93f *R/J.R
 fde2a8ae212d67ed34e9b4e7d74252c3 *R/XLConnectSettings.R
 bbe0636cd5bd3be82bf59aff89bb125c *R/aref.R
@@ -123,7 +123,7 @@ f3e9bc0ddb13e5c1cb80a83e0239d122 *R/xlcFreeMemory.R
 18f599fbd17c2238ac6acc10abbce9d3 *R/xlcMemoryReport.R
 813557a1ecc7c89e03bcb2c06436ac04 *R/xlcRestore.R
 084522247aee8714f95c7933ca3fa59d *README.md
-2314a8f228cb2b8d0ae1fed1586c4064 *build/vignette.rds
+06e42e2b29f9dcb5e4120cbf789ef6ad *build/vignette.rds
 01e8a4694c596b41038e2b129d72bd22 *data/swissfranc.rda
 7cd68b9480250860424145210a575045 *demo/00Index
 7cef179d0ba961548c296e16de6eb506 *demo/addImage.R
@@ -153,10 +153,10 @@ ebecf379154d7da437b4d01441573f1f *inst/demoFiles/errorCell.xlsx
 0036c8cab21f9f3037239424707d383d *inst/demoFiles/template2.xlsx
 dde88dfc79dccd4074b87017ad05e381 *inst/doc/XLConnect.R
 bc63c746af19db302d553f2843c5e4a7 *inst/doc/XLConnect.Rnw
-68725e26e4a5ef38fdb0ccb720176a2b *inst/doc/XLConnect.pdf
+4c21120816670755b386db4beb4a874e *inst/doc/XLConnect.pdf
 f1d57c337c025cb8d28d8591b31d1743 *inst/doc/XLConnectImpatient.Rnw
-574a64318e1a3116784d04bde138e365 *inst/doc/XLConnectImpatient.pdf
-82f9aa0120bede6d00402d85711b0eba *inst/java/XLConnect-2.0.0-SNAPSHOT.jar
+f446d180b373aae443f039453da917ef *inst/doc/XLConnectImpatient.pdf
+cd55c0e434aec821edef8acce3b6107e *inst/java/XLConnect-2.0.1.jar
 fc3aed90346691e7c79da06bb6606beb *inst/java/curvesapi-1.08.jar
 f72d4c67af67f8295490c19dc338b3fd *inst/java/log4j2.system.properties
 8ede85ae5b94fccae840c56f46507d84 *inst/unitTests/resources/testBug106.xlsx
@@ -199,7 +199,7 @@ f14ca8987693d31f04f7c44e12f48972 *inst/unitTests/runit.crefidx.R
 6460e47e2684afb6a5de76622effd8cf *inst/unitTests/runit.dataframeConversion.R
 42df0e0d36a93ff9aea066ce8401bc47 *inst/unitTests/runit.dumpAndRestore.R
 fe640480720a28aa44a4401f2eeb443f *inst/unitTests/runit.extractSheetName.R
-60d284fe69e05a8eec3661ea218bac82 *inst/unitTests/runit.loadWorkbook.R
+81ea28d95263572257adb57deb3281ef *inst/unitTests/runit.loadWorkbook.R
 aa3d148078e04efa6aaf54f09e196185 *inst/unitTests/runit.with.workbook.R
 748eaeb3366255c396e29529cf3000c2 *inst/unitTests/runit.workbook.cellstyles.R
 7efd120e1d48382abc614e4dbf66f4a8 *inst/unitTests/runit.workbook.createName.R
@@ -338,7 +338,7 @@ fd08dfcdc81e402a9164a1ebcbe7a4da *man/xlcDump.Rd
 d8f9419359b68f9152a18acb700355d9 *man/xlcFreeMemory.Rd
 82c4c0644f6ca68db87394fcd6ee75f4 *man/xlcMemoryReport.Rd
 69cdd1c81207bae6693ef5e56ca01ac2 *man/xlcRestore.Rd
-659706f4a85b3d3b70773080df4fc518 *tests/run_tests.R
+7d2dfecb683f36f8d43e272b470f0eeb *tests/run_tests.R
 bc63c746af19db302d553f2843c5e4a7 *vignettes/XLConnect.Rnw
 f1d57c337c025cb8d28d8591b31d1743 *vignettes/XLConnectImpatient.Rnw
 39d13f4838bb3ebe7531c675a249ab61 *vignettes/img/BrownBug.png

@@ -1,4 +1,4 @@
-55f9105f3d5401b34e23b0a3d1bd5f31 *DESCRIPTION
+0813149ec9293c291fffacd5649e0c77 *DESCRIPTION
 8773e06f67c8f880d9168338c15c8fa0 *NAMESPACE
 8e303437113b1754d581221238c20bd1 *NEWS
 22b6df4e57319dc4e08be023bdbdf93f *R/J.R
@@ -123,7 +123,7 @@ f3e9bc0ddb13e5c1cb80a83e0239d122 *R/xlcFreeMemory.R
 18f599fbd17c2238ac6acc10abbce9d3 *R/xlcMemoryReport.R
 813557a1ecc7c89e03bcb2c06436ac04 *R/xlcRestore.R
 084522247aee8714f95c7933ca3fa59d *README.md
-06e42e2b29f9dcb5e4120cbf789ef6ad *build/vignette.rds
+7949c196ce13c79056dea2f601b5da7f *build/vignette.rds
 01e8a4694c596b41038e2b129d72bd22 *data/swissfranc.rda
 7cd68b9480250860424145210a575045 *demo/00Index
 7cef179d0ba961548c296e16de6eb506 *demo/addImage.R
@@ -153,9 +153,9 @@ ebecf379154d7da437b4d01441573f1f *inst/demoFiles/errorCell.xlsx
 0036c8cab21f9f3037239424707d383d *inst/demoFiles/template2.xlsx
 dde88dfc79dccd4074b87017ad05e381 *inst/doc/XLConnect.R
 bc63c746af19db302d553f2843c5e4a7 *inst/doc/XLConnect.Rnw
-4c21120816670755b386db4beb4a874e *inst/doc/XLConnect.pdf
+1651331f7e9cd8bdb493d6f6a756f735 *inst/doc/XLConnect.pdf
 f1d57c337c025cb8d28d8591b31d1743 *inst/doc/XLConnectImpatient.Rnw
-f446d180b373aae443f039453da917ef *inst/doc/XLConnectImpatient.pdf
+b62efbff153e968fd0ce1d28781aa97a *inst/doc/XLConnectImpatient.pdf
 cd55c0e434aec821edef8acce3b6107e *inst/java/XLConnect-2.0.1.jar
 fc3aed90346691e7c79da06bb6606beb *inst/java/curvesapi-1.08.jar
 f72d4c67af67f8295490c19dc338b3fd *inst/java/log4j2.system.properties
@@ -225,8 +225,8 @@ e3d257cb71fb5dc0873f81eaefc4fe89 *inst/unitTests/runit.workbook.writeNamedRegion
 1309e445bf015b74721cd4b7dfad3171 *inst/unitTests/runit.workbook.writeWorksheet.R
 e3e1cf495690ddf396ec30d8794c6bbe *inst/unitTests/runit.writeAndReadNamedRegion.R
 b21699acdb25e9afc42a97477ddd523c *inst/unitTests/runit.writeAndReadWorksheet.R
-a75081b1c08b478a9e288d6677c1f9c2 *inst/unitTests/runit.writeNamedRegionToFile.R
-915fb1fae8cdf1253ab6318ed40bc39c *inst/unitTests/runit.writeWorksheetToFile.R
+4411dfa861b4cf234c4cc1b387da20c7 *inst/unitTests/runit.writeNamedRegionToFile.R
+cd02396c856ca8876557343ec0ea8fab *inst/unitTests/runit.writeWorksheetToFile.R
 f0f991bcda487646a6642811d03691a1 *java/README
 6cff7d62101deda31f8e0065fc94825d *man/XLC.Rd
 5f87492391aa692d31cc5c7155496d89 *man/XLConnect-deprecated.Rd
@@ -338,7 +338,7 @@ fd08dfcdc81e402a9164a1ebcbe7a4da *man/xlcDump.Rd
 d8f9419359b68f9152a18acb700355d9 *man/xlcFreeMemory.Rd
 82c4c0644f6ca68db87394fcd6ee75f4 *man/xlcMemoryReport.Rd
 69cdd1c81207bae6693ef5e56ca01ac2 *man/xlcRestore.Rd
-7d2dfecb683f36f8d43e272b470f0eeb *tests/run_tests.R
+69c12bec584d2c3c7780f65443b7bf21 *tests/run_tests.R
 bc63c746af19db302d553f2843c5e4a7 *vignettes/XLConnect.Rnw
 f1d57c337c025cb8d28d8591b31d1743 *vignettes/XLConnectImpatient.Rnw
 39d13f4838bb3ebe7531c675a249ab61 *vignettes/img/BrownBug.png

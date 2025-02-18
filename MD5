@@ -1,6 +1,6 @@
-903343eaf4844463279993723e8cc763 *DESCRIPTION
+f45eb1453607d0da46f7badd54b6190f *DESCRIPTION
 8773e06f67c8f880d9168338c15c8fa0 *NAMESPACE
-dbb9d9046513c7db2d88754e95401afb *NEWS
+bd051a54924d992c678b544a5c1f8564 *NEWS
 22b6df4e57319dc4e08be023bdbdf93f *R/J.R
 e9a2e818c418d1d2a4d68b952dd42d82 *R/XLConnectSettings.R
 bbe0636cd5bd3be82bf59aff89bb125c *R/aref.R
@@ -34,7 +34,7 @@ cd2baffecb137269d622125e16583e5d *R/loadWorkbook.R
 0ea6fd0a1fa1abdc25598782f59d45d5 *R/mirai.R
 f9c9c9de74c2d3468bc1bf472e563a22 *R/normalizeDataframe.R
 e8560187004ee5b87930cd47877ee4d9 *R/onAttach.R
-acacc2d8d4bc3b632586fd35068eb186 *R/onLoad.R
+ef338fb79770f037f67b6c0442661eeb *R/onLoad.R
 1fed234b504f4e59d79e02a335c03aa9 *R/readNamedRegionFromFile.R
 9d8f839d0d5189373f9a1aca11ac8a0a *R/readWorksheetFromFile.R
 6c4ed7b3c148acddbff7aa15ef5ac466 *R/rg2idx.R
@@ -125,7 +125,7 @@ f3e9bc0ddb13e5c1cb80a83e0239d122 *R/xlcFreeMemory.R
 48280b674d0f27b2cd5b2ead9d62839f *R/xlcOperators.R
 813557a1ecc7c89e03bcb2c06436ac04 *R/xlcRestore.R
 084522247aee8714f95c7933ca3fa59d *README.md
-83444c9f7734a3fa325841a7c2fd8233 *build/vignette.rds
+06e42e2b29f9dcb5e4120cbf789ef6ad *build/vignette.rds
 01e8a4694c596b41038e2b129d72bd22 *data/swissfranc.rda
 7cd68b9480250860424145210a575045 *demo/00Index
 7cef179d0ba961548c296e16de6eb506 *demo/addImage.R
@@ -142,7 +142,7 @@ b39b975a3242633fce69362087694b8e *demo/withWorkbook.R
 c1b1c4d23202b999c8ddb2ad8f8196be *demo/writeLargeData.R
 76c29cca76b1a3bcc221cbe8cdd74b2d *demo/writeNamedRegion.R
 a0d76642d5291e10ece03da1c82c5ca8 *demo/writeWorksheet.R
-82471278406229ceeb74a51fde860575 *inst/COPYRIGHTS
+83537aed897cac46469be97a78cbab37 *inst/COPYRIGHTS
 51c8f6521b430dfe517bd111e45eb9c3 *inst/XLConnect.R
 d999cd2e84875e070344f36618533262 *inst/demoFiles/SwitzerlandFlag.jpg
 c6bd73b8c52a29c113619a8c0cae2044 *inst/demoFiles/conversion.xlsx
@@ -156,12 +156,12 @@ ebecf379154d7da437b4d01441573f1f *inst/demoFiles/errorCell.xlsx
 0036c8cab21f9f3037239424707d383d *inst/demoFiles/template2.xlsx
 dde88dfc79dccd4074b87017ad05e381 *inst/doc/XLConnect.R
 497297fd7a8e3b55130d4de65d749917 *inst/doc/XLConnect.Rnw
-65f39288e2098ec46f9d5a9b24c9f201 *inst/doc/XLConnect.pdf
+5a8ffcb11cf64b979612a11325784422 *inst/doc/XLConnect.pdf
 f1d57c337c025cb8d28d8591b31d1743 *inst/doc/XLConnectImpatient.Rnw
-78dba3c0d75135ebc4b10ef9d882faab *inst/doc/XLConnectImpatient.pdf
-972ad126513f6ff251abf6ba2a7763d0 *inst/java/XLConnect-3.0.0-SNAPSHOT.jar
+cbb060ba14a6744c0bf3b97cdd4daca1 *inst/doc/XLConnectImpatient.pdf
+c5aa0dc99738a0e667469e0b24b01f09 *inst/java/XLConnect-3.1.0.jar
 fc3aed90346691e7c79da06bb6606beb *inst/java/curvesapi-1.08.jar
-f72d4c67af67f8295490c19dc338b3fd *inst/java/log4j2.system.properties
+55f6058c0f03c2b5437dee79f82dd672 *inst/java/log4j2.system.properties
 3ec1fad8cc8ba8863fb4c03443a5ca95 *inst/unitTests/resources/test37.xlsx
 8ede85ae5b94fccae840c56f46507d84 *inst/unitTests/resources/testBug106.xlsx
 aa2852d8e17ee5352f7731d64977ca86 *inst/unitTests/resources/testBug170.xlsx

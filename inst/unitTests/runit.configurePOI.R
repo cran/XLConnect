@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2025 Mirai Solutions GmbH
+# Copyright (C) 2010-2024 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -20,20 +20,41 @@
 
 #############################################################################
 #
-# Creating worksheets in a workbook
+# Test POI configuration
 # 
 # Author: Martin Studer, Mirai Solutions GmbH
 #
 #############################################################################
 
-setGeneric("createSheet",
-	function(object, name) standardGeneric("createSheet"))
-
-setMethod("createSheet", 
-	signature(object = "workbook"), 
-	function(object, name) {
-    if(!is.character(name)) stop("Sheet name must be a string")
-		xlcCall(object, "createSheet", name)
-		invisible()
-	}
-)
+test.configurePOI <- function() {
+  
+  # Check that an exception is thrown if we limit the number of files to just 1
+  configurePOI(zip_max_files = 1L)
+  checkException(loadWorkbook(rsrc("resources/testLoadWorkbook.xlsx")))
+  
+  # Check zip bomb detection with high inflate ratio
+  configurePOI(zip_min_inflate_ratio = 0.99)
+  checkException(readWorksheetFromFile(
+    rsrc("resources/testZipBomb.xlsx"),
+    sheet = 1
+  ))
+  
+  # Check that an exception is thrown if we limit the max zip entry size to just
+  # 1 byte
+  configurePOI(zip_max_entry_size = 1L)
+  checkException(readWorksheetFromFile(
+    rsrc("resources/testWorkbookReadWorksheet.xlsx"),
+    sheet = 1
+  ))
+  
+  # Check storing of zip entries in temp files
+  configurePOI(zip_entry_threshold_bytes = 0L)
+  readWorksheetFromFile(
+    rsrc("resources/testWorkbookReadWorksheet.xlsx"),
+    sheet = 1
+  )
+  
+  # Reset settings after test
+  configurePOI()
+  
+}

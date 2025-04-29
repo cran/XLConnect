@@ -1,7 +1,7 @@
 #############################################################################
 #
 # XLConnect
-# Copyright (C) 2010-2025 Mirai Solutions GmbH
+# Copyright (C) 2010-2024 Mirai Solutions GmbH
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -20,20 +20,32 @@
 
 #############################################################################
 #
-# Creating worksheets in a workbook
+# Configures Apache POI and related components.
+# See https://poi.apache.org/components/configuration.html
 # 
 # Author: Martin Studer, Mirai Solutions GmbH
 #
 #############################################################################
 
-setGeneric("createSheet",
-	function(object, name) standardGeneric("createSheet"))
-
-setMethod("createSheet", 
-	signature(object = "workbook"), 
-	function(object, name) {
-    if(!is.character(name)) stop("Sheet name must be a string")
-		xlcCall(object, "createSheet", name)
-		invisible()
-	}
-)
+configurePOI <- function(
+    zip_max_files = 1000L,
+    zip_min_inflate_ratio = 0.001,
+    zip_max_entry_size = 0xFFFFFFFF,
+    zip_max_text_size = 10*1024*1024,
+    zip_entry_threshold_bytes = -1L,
+    max_size_byte_array = -1L
+) {
+  ioutils <- J("org.apache.poi.util.IOUtils")
+  ioutils$setByteArrayMaxOverride(as.integer(max_size_byte_array))
+  
+  zip <- J("org.apache.poi.openxml4j.util.ZipSecureFile")
+  zip$setMaxFileCount(rJava::.jlong(zip_max_files))
+  zip$setMinInflateRatio(zip_min_inflate_ratio)
+  zip$setMaxEntrySize(rJava::.jlong(zip_max_entry_size))
+  zip$setMaxTextSize(rJava::.jlong(zip_max_text_size))
+  
+  zipEntry <- J("org.apache.poi.openxml4j.util.ZipInputStreamZipEntrySource")
+  zipEntry$setThresholdBytesForTempFiles(as.integer(zip_entry_threshold_bytes))
+  
+  invisible()
+}

@@ -1,6 +1,6 @@
-1fa4ee5e3cfcd6385a9d474df8ef42d5 *DESCRIPTION
+ab7663927980b5a8e043d55107fb79d6 *DESCRIPTION
 41f154e04ed04c8210b92227f614fab8 *NAMESPACE
-d072aafa909609e42ffc413a8439022b *NEWS
+4c8aabb36c7d85ffa1e95f5d12bcea72 *NEWS
 84fc5265bed8d0a6651fe9155190007d *R/J.R
 74084204b1a92e8123c366dbe7e81157 *R/XLConnectSettings.R
 0c2e7abb67bd931072c9f424f969285f *R/aref.R
@@ -16,7 +16,7 @@ a0a48e60fb9ffd5be5f69b3c10141f70 *R/cellstyle.setDataFormat.R
 7a19c103d726a7bc35cb321569443b0c *R/checkSystemPackage.R
 53ad3ae35af362f1e95ba78e34806c3c *R/classToXlcType.R
 19022fa85f8f1c534faf4450f21290b4 *R/col2idx.R
-481cf4e1970d9c4235a1c478a3744453 *R/configurePOI.R
+6d89762204ac07104cde54997614850d *R/configurePOI.R
 36782f7905c364be74019a9b87d689b7 *R/constants.R
 133d3a0550bc2d84a8b9f37a37a1fc72 *R/cref2idx.R
 6e5b0457c6d8903d26e12d7c3b858e21 *R/dataframeFromJava.R
@@ -157,9 +157,9 @@ ebecf379154d7da437b4d01441573f1f *inst/demoFiles/errorCell.xlsx
 0036c8cab21f9f3037239424707d383d *inst/demoFiles/template2.xlsx
 dde88dfc79dccd4074b87017ad05e381 *inst/doc/XLConnect.R
 497297fd7a8e3b55130d4de65d749917 *inst/doc/XLConnect.Rnw
-9c0de5fc186da830ed2f4419588a2dc6 *inst/doc/XLConnect.pdf
+75e1b75be3073438c333a45f8b2c0af6 *inst/doc/XLConnect.pdf
 f1d57c337c025cb8d28d8591b31d1743 *inst/doc/XLConnectImpatient.Rnw
-2c1baa755c435b2507592d8e9b568a07 *inst/doc/XLConnectImpatient.pdf
+4456fe3bd8446909fdbbad53560c095e *inst/doc/XLConnectImpatient.pdf
 e483d84bc321cc19c17d71f2cf1d34ea *inst/java/XLConnect-3.1.1.jar
 fc3aed90346691e7c79da06bb6606beb *inst/java/curvesapi-1.08.jar
 55f6058c0f03c2b5437dee79f82dd672 *inst/java/log4j2.system.properties
@@ -253,7 +253,7 @@ fa951a783c0337b57152365991ea8b4a *man/cellstyle-class.Rd
 0dc63f8f6dc494046a0ead10f2ef20f8 *man/clearSheet-methods.Rd
 07a385f12c2275ba83e3f53a93af1fe2 *man/cloneSheet-methods.Rd
 82dafd0c3bec807f163fc204c59a3621 *man/col2idx.Rd
-6c96dc3ccf0cc2601a62c23f524b1631 *man/configurePOI.Rd
+b29fad478cc6150479a024a3f7722a9f *man/configurePOI.Rd
 c9a1bcca947bcb34676227cebf719c60 *man/createCellStyle-methods.Rd
 f9ab6e91f3725ce3f37d09b7be3ea7d5 *man/createFreezePane-methods.Rd
 b7e2f6a3055ab891ff0a8359ab58c79a *man/createName-methods.Rd
